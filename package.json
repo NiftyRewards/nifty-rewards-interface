@@ -28,12 +28,16 @@
     "next-pwa": "^5.3.1",
     "next-seo": "^4.26.0",
     "react": "^17.0.2",
+    "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0"
+    "react-hook-form": "^7.16.1",
+    "react-icons": "^4.2.0",
+    "web3": "^1.5.3"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
     "@types/react": "^17.0.24",
+    "@types/react-copy-to-clipboard": "^5.0.1",
     "commitlint": "^13.1.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",

@@ -1,16 +1,17 @@
-import { Box } from "@chakra-ui/react";
+import { VStack, Heading, Divider } from "@chakra-ui/react";
 
-import CTASection from "components/CTASection";
-import SomeImage from "components/SomeImage";
-import SomeText from "components/SomeText";
+import EtherWeiConverter from "../components/layout/EtherWeiConverter";
+import StringHexConverter from "../components/layout/StringHexConverter";
 
 const Home = () => {
   return (
-    <Box mb={8} w="full">
-      <SomeText />
-      <SomeImage />
-      <CTASection />
-    </Box>
+    <VStack>
+      <Heading>bytes32/hex - string/utf8</Heading>
+      <StringHexConverter />
+      <Divider py="4" />
+      <Heading>wei - ether</Heading>
+      <EtherWeiConverter />
+    </VStack>
   );
 };
 
