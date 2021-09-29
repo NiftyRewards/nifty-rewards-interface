@@ -3,6 +3,11 @@ import { ChangeEvent, useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import web3 from "web3";
 
+type ClipboardButtonProps = {
+  value: string;
+  text: string;
+};
+
 function StringHexConverter() {
   const [stringInput, setStringInput] = useState("");
   const [hexInput, setHexInput] = useState("");
@@ -57,38 +62,30 @@ function StringHexConverter() {
     return convertStringToHex("Hello World");
   }, []);
 
+  const ClipboardButton = ({ value, text }: ClipboardButtonProps) => (
+    <CopyToClipboard
+      text={value}
+      onCopy={() =>
+        toast({
+          title: `Copied ${value} in clipboard`,
+          status: "success",
+          duration: 2000,
+        })
+      }
+    >
+      <Button>Copy {text}</Button>
+    </CopyToClipboard>
+  );
+
   return (
     <Stack w="100%">
       <Text>String</Text>
       <Input onChange={(e) => convertToHex(e)} value={stringInput} />
-      <CopyToClipboard
-        text={stringInput}
-        onCopy={() =>
-          toast({
-            title: `Copied ${stringInput} in clipboard`,
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          })
-        }
-      >
-        <Button>Copy String</Button>
-      </CopyToClipboard>
+      <ClipboardButton value={stringInput} text="String" />
+
       <Text>Hex</Text>
       <Input onChange={(e) => convertToString(e)} value={hexInput} />
-      <CopyToClipboard
-        text={hexInput}
-        onCopy={() =>
-          toast({
-            title: `Copied ${hexInput} in clipboard`,
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          })
-        }
-      >
-        <Button>Copy Hex</Button>
-      </CopyToClipboard>
+      <ClipboardButton value={hexInput} text="Hex" />
     </Stack>
   );
 }
