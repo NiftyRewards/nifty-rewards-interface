@@ -1,14 +1,13 @@
 import { AddIcon } from "@chakra-ui/icons";
 import {
+  Flex,
+  IconButton,
   Input,
   SimpleGrid,
   Stack,
   Text,
-  IconButton,
-  Center,
-  Flex,
 } from "@chakra-ui/react";
-import { ChangeEvent, useState, useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { FaPaste } from "react-icons/fa";
 
 import ClipboardButton from "../Button/ClipboardButton";

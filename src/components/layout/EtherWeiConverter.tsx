@@ -1,4 +1,4 @@
-import { Text, Input, Stack, HStack, Flex } from "@chakra-ui/react";
+import { HStack, Input, Stack, Text } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 import web3 from "web3";
 
