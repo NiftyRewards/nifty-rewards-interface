@@ -1,7 +1,8 @@
-import { VStack, Heading, Divider } from "@chakra-ui/react";
+import { Divider, Heading, VStack } from "@chakra-ui/react";
 
 import EtherWeiConverter from "../components/layout/EtherWeiConverter";
 import StringHexConverter from "../components/layout/StringHexConverter";
+import WhiteboardGrid from "../components/layout/WhiteboardGrid";
 
 const Home = () => {
   return (
@@ -11,6 +12,9 @@ const Home = () => {
       <Divider py="4" />
       <Heading>wei - ether</Heading>
       <EtherWeiConverter />
+      <Divider py="4" />
+      <Heading>Whiteboard</Heading>
+      <WhiteboardGrid />
     </VStack>
   );
 };

@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.6.7",
     "@emotion/cache": "^11.4.0",
     "@emotion/react": "^11.4.1",
@@ -31,7 +32,7 @@
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.16.1",
-    "react-icons": "^4.2.0",
+    "react-icons": "^4.3.1",
     "web3": "^1.5.3"
   },
   "devDependencies": {

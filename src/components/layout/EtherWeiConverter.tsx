@@ -1,7 +1,8 @@
-import { Text, Input, Stack, HStack } from "@chakra-ui/react";
+import { Text, Input, Stack, HStack, Flex } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 import web3 from "web3";
 
+import nFormatter from "../../utils/nFormatter";
 import ClipboardButton from "../Button/ClipboardButton";
 
 const NUMBER_REGEX = "^-?[0-9.]+$";
@@ -9,6 +10,7 @@ const NUMBER_REGEX = "^-?[0-9.]+$";
 function EtherWeiConverter() {
   const [weiValue, setWeiValue] = useState("");
   const [ethValue, setEthValue] = useState("");
+  const [priceValue, setPriceValue] = useState("");
 
   function convertToWei(e: ChangeEvent<HTMLInputElement>) {
     const inputValue = e.target.value;
@@ -36,6 +38,11 @@ function EtherWeiConverter() {
     }
   }
 
+  function setPrice(e: ChangeEvent<HTMLInputElement>) {
+    const inputValue = e.target.value;
+    setPriceValue(inputValue);
+  }
+
   function getWei(value: string) {
     const isNumber = value.match(NUMBER_REGEX);
     if (isNumber !== null) {
@@ -58,6 +65,13 @@ function EtherWeiConverter() {
       <Text>Wei</Text>
       <Input onChange={(e) => convertToEther(e)} value={weiValue} />
       <ClipboardButton value={weiValue} text="Wei" />
+      <Text>Price</Text>
+      <Input
+        placeholder="Token Price"
+        onChange={(e) => setPrice(e)}
+        value={priceValue}
+      />
+      <Text>Total value: {nFormatter(+ethValue * +priceValue, 2)}</Text>
       {/* {ClipboardButton({ value: "0.01" })} */}
       <HStack justify="space-between">
         <GetWeiButton value="1" />
