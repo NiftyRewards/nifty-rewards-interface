@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  Box,
 } from "@chakra-ui/react";
 import { ChangeEvent, useEffect, useState } from "react";
 import { FaPaste } from "react-icons/fa";
@@ -62,14 +63,17 @@ function WhiteboardGrid() {
           <ClipboardButton value={val} text="" />
         </Stack>
       ))}
-      <IconButton
-        boxSize="full"
-        borderRadius="none"
-        bg="teal"
-        onClick={() => addBoard()}
-        aria-label="Search database"
-        icon={<AddIcon />}
-      />
+
+      <Box h="120px">
+        <IconButton
+          boxSize="full"
+          borderRadius="none"
+          bg="teal"
+          onClick={() => addBoard()}
+          aria-label="Search database"
+          icon={<AddIcon />}
+        />
+      </Box>
     </SimpleGrid>
   );
 }

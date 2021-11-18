@@ -1,7 +1,25 @@
 import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import ThemeToggle from "./ThemeToggle";
+
+const LinkItem = ({ href, children, ...props }: any) => {
+  const { pathname } = useRouter();
+
+  let isActive = false;
+  if (href === pathname) {
+    isActive = true;
+  }
+
+  return (
+    <Text color={isActive ? "teal.300" : ""}>
+      <Link href={href} {...props}>
+        {children}
+      </Link>
+    </Text>
+  );
+};
 
 const Header = () => {
   return (
@@ -10,9 +28,7 @@ const Header = () => {
         <Link href="/">Web3 Converter</Link>
       </Heading>
       <HStack pl="4" spacing="4">
-        <Link href="playground" passHref>
-          <Text color="transparent">Playground</Text>
-        </Link>
+        <LinkItem href="/polkatools">Polkatools</LinkItem>
       </HStack>
       <Box marginLeft="auto">
         <ThemeToggle />
