@@ -22,8 +22,7 @@ function BottomBar() {
         boxShadow="full"
         borderRadius="full"
         border="1px solid rgba( 50, 50, 50, 0.25 )"
-        background="rgba( 25, 25, 25, 0.25 )"
-        backdropFilter="blur(6px)"
+        backdropFilter="blur(10px)"
         justify="space-between"
       >
         <Button variant="unstyled">Connect</Button>

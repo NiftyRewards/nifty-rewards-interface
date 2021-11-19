@@ -1,4 +1,13 @@
-import { Box, Flex, Heading, Container, HStack, Text } from "@chakra-ui/react";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Container,
+  HStack,
+  IconButton,
+  Stack,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -22,8 +31,10 @@ const LinkItem = ({ href, children, ...props }: any) => {
 };
 
 const Header = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <Flex
+    <Box
       as="nav"
       w="100%"
       position="fixed"
@@ -39,15 +50,35 @@ const Header = () => {
         align="center"
         justify="space-between"
       >
-        <HStack pl="4" spacing="4">
+        <IconButton
+          size="md"
+          px="2"
+          mr="2"
+          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          aria-label="Open Menu"
+          display={{ md: "none" }}
+          onClick={isOpen ? onClose : onOpen}
+        />
+        <HStack spacing={4} alignItems="center">
           <Link href="/">Web3 Converter</Link>
-          <LinkItem href="/polkatools">Polkatools</LinkItem>
+          <HStack pl="4" spacing="4" display={{ base: "none", md: "flex" }}>
+            <LinkItem href="/polkatools">Polkatools</LinkItem>
+          </HStack>
         </HStack>
         <Box marginLeft="auto">
           <ThemeToggle />
         </Box>
       </Container>
-    </Flex>
+
+      {isOpen ? (
+        <Box p={4} display={{ md: "none" }}>
+          <Stack as="nav" spacing={4}>
+            <LinkItem href="/polkatools">Polkatools</LinkItem>
+            <LinkItem href="/playground">Playground</LinkItem>
+          </Stack>
+        </Box>
+      ) : null}
+    </Box>
   );
 };
 
