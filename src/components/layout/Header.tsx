@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Container, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -23,16 +23,30 @@ const LinkItem = ({ href, children, ...props }: any) => {
 
 const Header = () => {
   return (
-    <Flex as="header" width="full" align="center">
-      <Heading as="h1" size="md">
-        <Link href="/">Web3 Converter</Link>
-      </Heading>
-      <HStack pl="4" spacing="4">
-        <LinkItem href="/polkatools">Polkatools</LinkItem>
-      </HStack>
-      <Box marginLeft="auto">
-        <ThemeToggle />
-      </Box>
+    <Flex
+      as="nav"
+      w="100%"
+      position="fixed"
+      top="0"
+      backdropFilter="blur(10px)"
+      zIndex={1}
+    >
+      <Container
+        display="flex"
+        p={2}
+        maxW="7xl"
+        wrap="wrap"
+        align="center"
+        justify="space-between"
+      >
+        <HStack pl="4" spacing="4">
+          <Link href="/">Web3 Converter</Link>
+          <LinkItem href="/polkatools">Polkatools</LinkItem>
+        </HStack>
+        <Box marginLeft="auto">
+          <ThemeToggle />
+        </Box>
+      </Container>
     </Flex>
   );
 };
