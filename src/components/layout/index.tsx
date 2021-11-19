@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
+import BottomBar from "components/layout/BottomBar";
+
 type LayoutProps = {
   children: ReactNode;
 };
@@ -17,6 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
           {children}
         </Box>
         <Footer />
+        <BottomBar />
       </Box>
     </Box>
   );

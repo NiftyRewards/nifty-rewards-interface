@@ -9,8 +9,6 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 
-import BottomBar from "components/BottomBar";
-
 function playground() {
   return (
     <VStack
@@ -61,7 +59,6 @@ function playground() {
           </GridItem>
         ))}
       </Grid>
-      <BottomBar />
     </VStack>
   );
 }

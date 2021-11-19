@@ -10,7 +10,7 @@ import "@fontsource/lexend/latin.css";
 import defaultSEOConfig from "../../next-seo.config";
 import Layout from "components/layout";
 import createEmotionCache from "styles/createEmotionCache";
-import customTheme from "styles/customTheme";
+import theme from "styles/theme";
 import "styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -26,7 +26,7 @@ const MyApp = ({
 }: MyAppProps) => {
   return (
     <CacheProvider value={emotionCache}>
-      <ChakraProvider theme={customTheme}>
+      <ChakraProvider theme={theme}>
         <Head>
           <meta
             name="viewport"
