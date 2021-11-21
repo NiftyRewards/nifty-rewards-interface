@@ -65,6 +65,7 @@ const Header = () => {
           <Link href="/">Web3 Converter</Link>
           <HStack pl="4" spacing="4" display={{ base: "none", md: "flex" }}>
             <LinkItem href="/polkatools">Polkatools</LinkItem>
+            <LinkItem href="/impermanentloss">IL Calc</LinkItem>
           </HStack>
         </HStack>
         <HStack marginLeft="auto">
