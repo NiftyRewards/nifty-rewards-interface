@@ -28,10 +28,8 @@ const baseStyleDialog: SystemStyleFunction = (props) => {
   const { scrollBehavior } = props;
 
   return {
-    bg: mode("white", "space")(props),
-    borderColor: "spacelight",
-    borderWidth: "1px",
-    borderRadius: "sm",
+    borderRadius: "md",
+    bg: mode("white", "gray.700")(props),
     color: "inherit",
     my: "3.75rem",
     zIndex: "modal",
@@ -45,14 +43,12 @@ const baseStyleHeader: SystemStyleObject = {
   py: 4,
   fontSize: "xl",
   fontWeight: "semibold",
-  color: "white",
 };
 
 const baseStyleCloseButton: SystemStyleObject = {
   position: "absolute",
   top: 2,
   insetEnd: 3,
-  color: "pink.200",
   _focus: {
     boxShadow: "none",
   },
@@ -65,7 +61,6 @@ const baseStyleBody: SystemStyleFunction = (props) => {
     py: 2,
     flex: 1,
     overflow: scrollBehavior === "inside" ? "auto" : undefined,
-    color: "stone",
   };
 };
 
@@ -115,7 +110,6 @@ const sizes = {
 
 const defaultProps = {
   size: "md",
-  isCentered: "true",
 };
 
 export default {

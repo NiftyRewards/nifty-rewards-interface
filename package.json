@@ -28,6 +28,7 @@
     "@fontsource/lexend": "^4.5.1",
     "@polkadot/util": "^7.8.2",
     "@polkadot/util-crypto": "^7.8.2",
+    "@solana/web3.js": "^1.30.2",
     "framer-motion": "^4.1.17",
     "next": "^11.1.2",
     "next-pwa": "^5.3.1",

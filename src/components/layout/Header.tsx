@@ -11,6 +11,8 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import ConnectCard from "../ConnectCard";
+
 import ThemeToggle from "./ThemeToggle";
 
 const LinkItem = ({ href, children, ...props }: any) => {
@@ -65,9 +67,10 @@ const Header = () => {
             <LinkItem href="/polkatools">Polkatools</LinkItem>
           </HStack>
         </HStack>
-        <Box marginLeft="auto">
+        <HStack marginLeft="auto">
+          <ConnectCard />
           <ThemeToggle />
-        </Box>
+        </HStack>
       </Container>
 
       {isOpen ? (
