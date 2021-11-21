@@ -1,7 +1,7 @@
 import { Input, Switch, Heading, Text, VStack } from "@chakra-ui/react";
 import * as polkadotUtils from "@polkadot/util";
 import * as polkadotCryptoUtils from "@polkadot/util-crypto";
-import React, { useCallback, useState, useMemo } from "react";
+import { useCallback, useState, useMemo } from "react";
 
 import ClipboardButton from "../components/Button/ClipboardButton";
 
