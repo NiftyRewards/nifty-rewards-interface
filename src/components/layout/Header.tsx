@@ -15,6 +15,7 @@ import ConnectCard from "../ConnectCard";
 
 import ThemeToggle from "./ThemeToggle";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const LinkItem = ({ href, children, ...props }: any) => {
   const { pathname } = useRouter();
 
@@ -29,6 +30,16 @@ const LinkItem = ({ href, children, ...props }: any) => {
         {children}
       </Link>
     </Text>
+  );
+};
+
+const LinkItems = () => {
+  return (
+    <>
+      <LinkItem href="/polkatools">Polkatools</LinkItem>
+      <LinkItem href="/impermanentloss">IL Calc</LinkItem>
+      <LinkItem href="/playground">.</LinkItem>
+    </>
   );
 };
 
@@ -64,8 +75,7 @@ const Header = () => {
         <HStack spacing={4} alignItems="center">
           <Link href="/">Web3 Converter</Link>
           <HStack pl="4" spacing="4" display={{ base: "none", md: "flex" }}>
-            <LinkItem href="/polkatools">Polkatools</LinkItem>
-            <LinkItem href="/impermanentloss">IL Calc</LinkItem>
+            <LinkItems />
           </HStack>
         </HStack>
         <HStack marginLeft="auto">
@@ -77,8 +87,7 @@ const Header = () => {
       {isOpen ? (
         <Box p={4} display={{ md: "none" }}>
           <Stack as="nav" spacing={4}>
-            <LinkItem href="/polkatools">Polkatools</LinkItem>
-            <LinkItem href="/playground">Playground</LinkItem>
+            <LinkItems />
           </Stack>
         </Box>
       ) : null}

@@ -10,11 +10,12 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import usePhantom from "../hooks/usePhantom";
+
+import usePhantom, { UsePhantom } from "../hooks/usePhantom";
 
 export default function BalanceCard() {
-  const { provider, balance, logs, connect, disconnect, isConnected } =
-    usePhantom();
+  const phantom = usePhantom() as UsePhantom;
+  const { provider, balance, connect, disconnect, isConnected } = phantom;
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Flex w="100%" align="center">
@@ -33,7 +34,7 @@ export default function BalanceCard() {
             </Flex>
           </Button>
 
-          <Modal mx="4" onClose={onClose} isOpen={isOpen} isCentered>
+          <Modal onClose={onClose} isOpen={isOpen} isCentered>
             <ModalOverlay />
             <ModalContent>
               <ModalHeader>Your wallet</ModalHeader>

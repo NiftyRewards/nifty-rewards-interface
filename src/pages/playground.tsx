@@ -7,9 +7,24 @@ import {
   Box,
   Grid,
   GridItem,
+  Button,
 } from "@chakra-ui/react";
 
 function playground() {
+  const vibrate = () => {
+    window.navigator.vibrate([100, 50, 50]);
+  };
+
+  const shareData = {
+    title: "MDN",
+    text: "Learn web development on MDN!",
+    url: "https://developer.mozilla.org",
+  };
+
+  const share = () => {
+    window.navigator.share(shareData);
+  };
+
   return (
     <VStack
       bgImage="/colorfulBackground.jpeg"
@@ -21,6 +36,8 @@ function playground() {
         <Center boxSize="100px" bg="twitter.400">
           Hello
         </Center>
+        <Button onClick={vibrate}>Vibrate a little</Button>
+        <Button onClick={share}>Vibrate a little</Button>
         <Spacer />
 
         <Center boxSize="100px" bg="twitter.400">

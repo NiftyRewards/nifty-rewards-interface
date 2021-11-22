@@ -34,6 +34,14 @@ interface PhantomProvider {
   on: (event: PhantomEvent, handler: (args: any) => void) => void;
   request: (method: PhantomRequestMethod, params: any) => Promise<unknown>;
 }
+export interface UsePhantom {
+  provider: PhantomProvider;
+  balance: number | undefined;
+  logs: string[];
+  connect: () => Promise<void>;
+  disconnect: () => Promise<void>;
+  isConnected: PublicKey | null;
+}
 
 const getProvider = (): PhantomProvider | undefined => {
   if ("solana" in window) {
@@ -43,12 +51,12 @@ const getProvider = (): PhantomProvider | undefined => {
       return provider;
     }
   }
-  window.open("https://phantom.app/", "_blank");
+  // window.open("https://phantom.app/", "_blank");
 };
 
 const NETWORK = clusterApiUrl("mainnet-beta");
 
-export default function BalanceCard() {
+function BalanceCard() {
   const connection = new Connection(NETWORK);
 
   const [provider, setProvider] = useState<PhantomProvider>();
@@ -74,8 +82,8 @@ export default function BalanceCard() {
       const res = await provider.connect();
       addLog(JSON.stringify(res));
       // const publicKey = new PublicKey(res.publicKey);
-      connection.getBalance(res.publicKey).then((balance) => {
-        setBalance(balance / LAMPORTS_PER_SOL);
+      connection.getBalance(res.publicKey).then((bal) => {
+        setBalance(bal / LAMPORTS_PER_SOL);
       });
     } catch (err) {
       console.warn(err);
@@ -102,3 +110,5 @@ export default function BalanceCard() {
     isConnected: provider && provider.publicKey,
   };
 }
+
+export default BalanceCard;
