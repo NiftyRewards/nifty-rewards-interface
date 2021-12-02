@@ -3,6 +3,7 @@
  * @todo: remove this comment below when ready
  * ref: https://github.com/vercel/next.js/issues/13712#issuecomment-910409023
  * */
+import { ColorModeScript } from "@chakra-ui/react";
 import createEmotionServer from "@emotion/server/create-instance";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, {
@@ -15,6 +16,7 @@ import Document, {
 import * as React from "react";
 
 import createEmotionCache from "styles/createEmotionCache";
+import theme from "styles/theme";
 
 const APP_NAME = "web3-converter";
 const APP_DESCRIPTION =
@@ -81,6 +83,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>

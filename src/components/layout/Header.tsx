@@ -38,6 +38,7 @@ const LinkItems = () => {
     <>
       <LinkItem href="/polkatools">Polkatools</LinkItem>
       <LinkItem href="/impermanentloss">IL Calc</LinkItem>
+      <LinkItem href="/supa">Supa</LinkItem>
       <LinkItem href="/playground">.</LinkItem>
     </>
   );
@@ -85,7 +86,7 @@ const Header = () => {
       </Container>
 
       {isOpen ? (
-        <Box p={4} display={{ md: "none" }}>
+        <Box p={4} display={{ md: "none" }} onClick={isOpen ? onClose : onOpen}>
           <Stack as="nav" spacing={4}>
             <LinkItems />
           </Stack>
