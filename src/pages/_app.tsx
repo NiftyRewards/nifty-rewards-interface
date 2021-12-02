@@ -8,6 +8,7 @@ import Head from "next/head";
 import "@fontsource/lexend/latin.css";
 
 import defaultSEOConfig from "../../next-seo.config";
+import { SupabaseProvider } from "../supabase";
 import Layout from "components/layout";
 import createEmotionCache from "styles/createEmotionCache";
 import theme from "styles/theme";
@@ -25,20 +26,22 @@ const MyApp = ({
   emotionCache = clientSideEmotionCache,
 }: MyAppProps) => {
   return (
-    <CacheProvider value={emotionCache}>
-      <ChakraProvider theme={theme}>
-        <Head>
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
-          />
-        </Head>
-        <DefaultSeo {...defaultSEOConfig} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ChakraProvider>
-    </CacheProvider>
+    <SupabaseProvider>
+      <CacheProvider value={emotionCache}>
+        <ChakraProvider theme={theme}>
+          <Head>
+            <meta
+              name="viewport"
+              content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+            />
+          </Head>
+          <DefaultSeo {...defaultSEOConfig} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ChakraProvider>
+      </CacheProvider>
+    </SupabaseProvider>
   );
 };
 

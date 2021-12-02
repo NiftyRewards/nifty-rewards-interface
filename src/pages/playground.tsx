@@ -37,7 +37,7 @@ function playground() {
           Hello
         </Center>
         <Button onClick={vibrate}>Vibrate a little</Button>
-        <Button onClick={share}>Vibrate a little</Button>
+        <Button onClick={share}>Mobile Share</Button>
         <Spacer />
 
         <Center boxSize="100px" bg="twitter.400">
