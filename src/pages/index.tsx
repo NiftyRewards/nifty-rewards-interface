@@ -1,4 +1,4 @@
-import { Divider, Heading, VStack } from "@chakra-ui/react";
+import { Divider, Heading, VStack, Text } from "@chakra-ui/react";
 
 import EtherWeiConverter from "../components/layout/EtherWeiConverter";
 import StringHexConverter from "../components/layout/StringHexConverter";
@@ -8,6 +8,7 @@ const Home = () => {
   return (
     <VStack>
       <Heading>bytes32/hex - string/utf8</Heading>
+      <Text>https://www.epochconverter.com/</Text>
       <StringHexConverter />
       <Divider py="4" />
       <Heading>wei - ether</Heading>

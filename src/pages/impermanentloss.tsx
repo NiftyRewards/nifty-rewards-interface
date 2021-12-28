@@ -8,6 +8,11 @@ import {
   NumberInputStepper,
   Text,
   VStack,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -98,7 +103,22 @@ function Impermanentloss() {
           <NumberDecrementStepper />
         </NumberInputStepper>
       </NumberInput>
-      <CalculatingIL />
+      <Accordion allowToggle>
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex="1" textAlign="left">
+                Calculation Info
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            <CalculatingIL />
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+
       <Text fontWeight="bold">Impermanent Loss</Text>
       <Box w="full" p="4" bg="teal.400" borderRadius="8">
         <Text fontWeight="bold">{IL}%</Text>
@@ -108,6 +128,11 @@ function Impermanentloss() {
       <Text>
         Value if providing liquidity: ${(poolValue * 1000).toFixed(2)}{" "}
       </Text>
+      <Box p="4" bg="teal.400" borderRadius="xl">
+        <Text fontWeight="bold">
+          Multiplier LP to Initial: {poolValue.toFixed(2)}
+        </Text>
+      </Box>
     </VStack>
   );
 }

@@ -1,6 +1,6 @@
 import { useInsert } from "react-supabase";
 
-export function useInsertClicks() {
+function useInsertClicks() {
   //   const [_data, execute] = useInsert("clicks");
   const [, execute] = useInsert("clicks");
 
