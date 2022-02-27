@@ -31,6 +31,7 @@
     "@solana/web3.js": "^1.30.2",
     "@supabase/supabase-js": "^1.28.4",
     "framer-motion": "^4.1.17",
+    "fs": "^0.0.1-security",
     "next": "^11.1.2",
     "next-pwa": "^5.3.1",
     "next-seo": "^4.26.0",
@@ -65,5 +66,10 @@
     "src/**/*.{json,css,scss,md}": [
       "prettier --write"
     ]
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
