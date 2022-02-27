@@ -40,7 +40,6 @@ const LinkItems = () => {
       <LinkItem href="/impermanentloss">IL Calc</LinkItem>
       <LinkItem href="/supa">Supa</LinkItem>
       <LinkItem href="/playground">.</LinkItem>
-      <LinkItem href="/priceimpact">Price Impact</LinkItem>
       <LinkItem href="/abi2solidity">abi2solidity</LinkItem>
     </>
   );

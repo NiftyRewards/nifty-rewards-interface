@@ -7,6 +7,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useState, ChangeEvent } from "react";
+
 import ABI2Solidity from "utils/abi2solidity";
 
 const Abi2solidity = () => {
@@ -20,7 +21,6 @@ const Abi2solidity = () => {
 
     const out = ABI2Solidity(inputValue);
     setOutput(out);
-    console.log("out", out);
   };
 
   return (
