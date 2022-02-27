@@ -11,6 +11,7 @@ type ClipboardButtonProps = {
 function StringHexConverter() {
   const [stringInput, setStringInput] = useState("");
   const [hexInput, setHexInput] = useState("");
+  const [numberInput, setNumberInput] = useState("");
   const toast = useToast();
 
   function convertToHex(e: ChangeEvent<HTMLInputElement>) {
@@ -44,17 +45,43 @@ function StringHexConverter() {
     }
   }
 
-  function convertToString(e: ChangeEvent<HTMLInputElement>) {
+  function convertNumberToHex(e: ChangeEvent<HTMLInputElement>) {
+    const numberValue = e.target.value;
+    setNumberInput(numberValue);
+
+    const isNumber = numberValue.match("^[0-9]+$");
+
+    if (isNumber !== null) {
+      const converted = web3.utils.toHex(+numberValue);
+      setHexInput(converted);
+    } else {
+      setHexInput("Not a Number value");
+    }
+  }
+
+  function convertToStringAndNumber(e: ChangeEvent<HTMLInputElement>) {
     const hexValue = e.target.value;
     setHexInput(hexValue);
 
-    const isHex = hexValue.match("^0x[0-9a-fA-F]+$");
+    const isHex = web3.utils.isHex(hexValue);
 
-    if (isHex !== null) {
-      const converted = web3.utils.hexToString(hexValue);
-      setStringInput(converted);
+    if (isHex) {
+      try {
+        const convertedNumber = parseInt(hexValue, 16);
+        setNumberInput(convertedNumber.toString());
+      } catch (error: any) {
+        setNumberInput(error);
+      }
+
+      try {
+        const convertedString = web3.utils.hexToString(hexValue);
+        setStringInput(convertedString);
+      } catch (error: any) {
+        setStringInput(error);
+      }
     } else {
       setStringInput("Not a Hex value");
+      setNumberInput("Not a Hex value");
     }
   }
 
@@ -83,8 +110,12 @@ function StringHexConverter() {
       <Input onChange={(e) => convertToHex(e)} value={stringInput} />
       <ClipboardButton value={stringInput} text="String" />
 
+      <Text>Number</Text>
+      <Input onChange={(e) => convertNumberToHex(e)} value={numberInput} />
+      <ClipboardButton value={numberInput} text="Number" />
+
       <Text>Hex</Text>
-      <Input onChange={(e) => convertToString(e)} value={hexInput} />
+      <Input onChange={(e) => convertToStringAndNumber(e)} value={hexInput} />
       <ClipboardButton value={hexInput} text="Hex" />
     </Stack>
   );
