@@ -1,12 +1,14 @@
 import { Divider, Heading, VStack, Text } from "@chakra-ui/react";
 
-import EtherWeiConverter from "../components/layout/EtherWeiConverter";
-import StringHexConverter from "../components/layout/StringHexConverter";
-import WhiteboardGrid from "../components/layout/WhiteboardGrid";
+import EstimateGas from "../components/EstimateGas";
+import EtherWeiConverter from "../components/EtherWeiConverter";
+import StringHexConverter from "../components/StringHexConverter";
+import WhiteboardGrid from "../components/WhiteboardGrid";
 
 const Home = () => {
   return (
     <VStack>
+      <EstimateGas />
       <Heading>bytes32/hex - string/utf8</Heading>
       <Text>https://www.epochconverter.com/</Text>
       <StringHexConverter />

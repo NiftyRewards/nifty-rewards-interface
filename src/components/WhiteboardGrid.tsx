@@ -11,7 +11,7 @@ import {
 import { ChangeEvent, useEffect, useState } from "react";
 import { FaPaste } from "react-icons/fa";
 
-import ClipboardButton from "../Button/ClipboardButton";
+import ClipboardButton from "./Button/ClipboardButton";
 
 function WhiteboardGrid() {
   const [boardValues, setBoardValues] = useState([""]);

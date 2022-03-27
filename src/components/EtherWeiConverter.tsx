@@ -2,8 +2,8 @@ import { HStack, Input, Stack, Text } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 import web3 from "web3";
 
-import nFormatter from "../../utils/nFormatter";
-import ClipboardButton from "../Button/ClipboardButton";
+import nFormatter from "../utils/nFormatter";
+import ClipboardButton from "./Button/ClipboardButton";
 
 const NUMBER_REGEX = "^-?[0-9.]+$";
 

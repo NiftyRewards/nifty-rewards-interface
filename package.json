@@ -30,6 +30,8 @@
     "@polkadot/util-crypto": "^7.8.2",
     "@solana/web3.js": "^1.30.2",
     "@supabase/supabase-js": "^1.28.4",
+    "axios": "^0.26.1",
+    "ethers": "^5.6.2",
     "framer-motion": "^4.1.17",
     "fs": "^0.0.1-security",
     "next": "^11.1.2",
