@@ -3,4 +3,4 @@
 - Eth to Wei and vice versa
 - String to Hex and vice versa
 
-## [Use App](https://web3-converter.vercel.app/)
+## [Use App](https://nifty6.vercel.app/)

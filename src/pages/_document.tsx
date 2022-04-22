@@ -18,7 +18,7 @@ import * as React from "react";
 import createEmotionCache from "../styles/createEmotionCache";
 import theme from "../styles/theme";
 
-const APP_NAME = "web3-converter";
+const APP_NAME = "nifty6";
 const APP_DESCRIPTION =
   "Next.js app template with Chakra-UI, TypeScript, and PWA configured";
 
