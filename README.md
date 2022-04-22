@@ -1,6 +1,3 @@
-# Web3 Converter
-
-- Eth to Wei and vice versa
-- String to Hex and vice versa
+# Nifty Rewards
 
 ## [Use App](https://nifty6.vercel.app/)

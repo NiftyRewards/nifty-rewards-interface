@@ -34,11 +34,7 @@ const LinkItem = ({ href, children, ...props }: any) => {
 const LinkItems = () => {
   return (
     <>
-      <LinkItem href="/polkatools">Polkatools</LinkItem>
-      <LinkItem href="/impermanentloss">IL Calc</LinkItem>
-      <LinkItem href="/supa">Supa</LinkItem>
-      <LinkItem href="/playground">.</LinkItem>
-      <LinkItem href="/abi2solidity">abi2solidity</LinkItem>
+      <LinkItem href="/discounts">Discounts</LinkItem>
     </>
   );
 };
@@ -73,7 +69,7 @@ const Header = () => {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack spacing={4} alignItems="center">
-          <Link href="/">Web3 Converter</Link>
+          <Link href="/">Nifty Rewards</Link>
           <HStack pl="4" spacing="4" display={{ base: "none", md: "flex" }}>
             <LinkItems />
           </HStack>
