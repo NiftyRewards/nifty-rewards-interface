@@ -15,8 +15,8 @@ import Document, {
 } from "next/document";
 import * as React from "react";
 
-import createEmotionCache from "styles/createEmotionCache";
-import theme from "styles/theme";
+import createEmotionCache from "../styles/createEmotionCache";
+import theme from "../styles/theme";
 
 const APP_NAME = "web3-converter";
 const APP_DESCRIPTION =

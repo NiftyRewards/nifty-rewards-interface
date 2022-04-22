@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
-import BottomBar from "components/layout/BottomBar";
+import BottomBar from "../../components/layout/BottomBar";
 
 import Footer from "./Footer";
 import Header from "./Header";

@@ -11,8 +11,6 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import ConnectCard from "../ConnectCard";
-
 import ThemeToggle from "./ThemeToggle";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -81,7 +79,6 @@ const Header = () => {
           </HStack>
         </HStack>
         <HStack marginLeft="auto">
-          <ConnectCard />
           <ThemeToggle />
         </HStack>
       </Container>

@@ -9,10 +9,10 @@ import "@fontsource/lexend/latin.css";
 
 import defaultSEOConfig from "../../next-seo.config";
 import { SupabaseProvider } from "../supabase";
-import Layout from "components/layout";
-import createEmotionCache from "styles/createEmotionCache";
-import theme from "styles/theme";
-import "styles/globals.css";
+import Layout from "../components/layout";
+import createEmotionCache from "../styles/createEmotionCache";
+import theme from "../styles/theme";
+import "../styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
 
