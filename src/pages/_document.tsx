@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint-disable react/jsx-props-no-spreading */
 /**
  * @todo: remove this comment below when ready
@@ -31,7 +32,6 @@ class MyDocument extends Document {
 
     ctx.renderPage = () =>
       originalRenderPage({
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         enhanceApp: (App: any) => (props) =>
           <App emotionCache={cache} {...props} />,
       });

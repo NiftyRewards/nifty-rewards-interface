@@ -15,7 +15,6 @@ import { useRouter } from "next/router";
 import { useWeb3Auth } from "../../services/web3auth";
 import ThemeToggle from "./ThemeToggle";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const LinkItem = ({ href, children, ...props }: any) => {
   const { pathname } = useRouter();
 

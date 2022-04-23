@@ -45,7 +45,7 @@ const Hero = () => {
         <Heading>Azuki x Nike</Heading>
         <Text>
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy
+          industry. Lorem Ipsum has been the industry&quot;s standard dummy
         </Text>
       </VStack>
       <HStack w="full" align="center" justify="center">
@@ -169,7 +169,7 @@ function VoucherModal({ isOpen, onClose }) {
   return (
     <>
       <Box ref={finalRef} tabIndex={-1} aria-label="Focus moved to this box">
-        Some other content that'll receive focus on close.
+        Some other content that&quot;ll receive focus on close.
       </Box>
 
       <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
