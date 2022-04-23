@@ -11,7 +11,7 @@ import {
   apiGetAccountNonce,
 } from "../helpers/api";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IAppState {
   connector: WalletConnect | null;
@@ -58,13 +58,21 @@ const WalletConnectView = () => {
     if (!connector.connected) {
       // create new session
       await connector.createSession();
+    } else {
+      killSession();
     }
 
     // subscribe to events
+    console.log("before subscribeToEvents");
     await subscribeToEvents();
   };
 
+  useEffect(() => {
+    subscribeToEvents();
+  }, [state.connector]);
+
   const subscribeToEvents = () => {
+    console.log("subscribeToEvents");
     if (!state.connector) {
       return;
     }
@@ -121,6 +129,7 @@ const WalletConnectView = () => {
   };
 
   const onConnect = async (payload: IInternalEvent) => {
+    console.log({ payload });
     const { chainId, accounts } = payload.params[0];
     const address = accounts[0];
     await setState({ ...state, connected: true, chainId, accounts, address });
@@ -161,7 +170,12 @@ const WalletConnectView = () => {
           verify your web3 wallet on our platform to bind your nft wallet Find
           out more
         </Text>
-        <Text>Status: {state.connected ? `Connected with ${state.address}` : "Not connected"}</Text>
+        <Text>
+          Status:{" "}
+          {state.connected
+            ? `Connected with ${state.address}`
+            : "Not connected"}
+        </Text>
         {state.connected ? (
           <Button onClick={killSession}>Disconnect</Button>
         ) : (
