@@ -1,52 +1,120 @@
 import { DeepPartial, Theme } from "@chakra-ui/react";
 
+interface ExtendedColors {
+  neutralDarkest: string;
+  neutralDarker: string;
+  neutralDark: string;
+  neutralLightest: string;
+  neutralLighter: string;
+  neutralLight: string;
+  borderDark: string;
+  borderLight: string;
+
+  neutralDarkerAlpha: string;
+  neutralLighterAlpha: string;
+
+  // Functional
+  success: string;
+  error: string;
+
+  primary: {
+    50: string;
+    100: string;
+    200: string;
+    300: string;
+    400: string;
+    500: string;
+    600: string;
+    700: string;
+    800: string;
+    900: string;
+  };
+  accentDark: {
+    50: string;
+    100: string;
+    200: string;
+    300: string;
+    400: string;
+    500: string;
+    600: string;
+    700: string;
+    800: string;
+    900: string;
+  };
+  accentLight: {
+    50: string;
+    100: string;
+    200: string;
+    300: string;
+    400: string;
+    500: string;
+    600: string;
+    700: string;
+    800: string;
+    900: string;
+  };
+}
+
 /** extend additional color here */
 const extendedColors: DeepPartial<
   Record<string, Theme["colors"]["current" | "purple"]>
-> = {
-  // white: "#fff",
-  // space: "#0E0333",
-  // spacepink: "#301041",
-  // spacelight: "#1A103D",
-  // spacelightalpha: "rgba(255, 255, 255, 0.05)",
-  // stone: "#9B95B0",
-  // smoke: "#3B3058",
-  // purple: {
-  //   50: "#eee9fe",
-  //   100: "#cab8fb",
-  //   200: "#8C65F7", // purplelight
-  //   300: "#6F3FF5", // purple
-  //   400: "#5932C4", // purpledark
-  //   500: "#6F3FF5",
-  //   600: "#4b0ff2",
-  //   700: "#420bdc",
-  //   800: "#3b0ac4",
-  //   900: "#2d0893",
-  // },
-  // pink: {
-  //   50: "#ffffff",
-  //   100: "#fccfdf",
-  //   200: "#F579A6", // pinklight
-  //   300: "#F35890", // pink
-  //   400: "#D44D6E", // pinkdark
-  //   500: "#F35890",
-  //   600: "#f02870",
-  //   700: "#ed1161",
-  //   800: "#d60f57",
-  //   900: "#a60c44",
-  // },
-  // aqua: {
-  //   50: "#98fee6",
-  //   100: "#66fed9",
-  //   200: "#5BF1CD", // aqualight
-  //   300: "#02E2AC", // aqua
-  //   400: "#11BC92", // aquadark
-  //   500: "#02E2AC",
-  //   600: "#02af86",
-  //   700: "#019672",
-  //   800: "#017d5f",
-  //   900: "#014a39",
-  // },
+> &
+  ExtendedColors = {
+  // Basic
+  neutralDarkest: "#1E2328",
+  neutralDarker: "#2A2E34",
+  neutralDark: "#3B3F46",
+  neutralLightest: "#fff",
+  neutralLighter: "#f0f0f0",
+  neutralLight: "#d4d4d4",
+
+  neutralDarkerAlpha: "#1a2227b3",
+  neutralLighterAlpha: "#f0f0f0b3",
+
+  borderDark: "#30363d",
+  borderLight: "#c7d2da",
+
+  // Functional
+  success: "#00d897",
+  error: "#f1356e",
+
+  // Main
+  primary: {
+    "50": "#FFF8E6",
+    "100": "#FFECB8",
+    "200": "#FEE08A",
+    "300": "#FED35D",
+    "400": "#FEC72F",
+    "500": "#FEBB01",
+    "600": "#CB9501",
+    "700": "#987001",
+    "800": "#654B01",
+    "900": "#332500",
+  },
+  accentDark: {
+    "50": "#FDF7E7",
+    "100": "#FAE9BC",
+    "200": "#F7DB91",
+    "300": "#F4CD66",
+    "400": "#F1BF3C",
+    "500": "#EEB111",
+    "600": "#BF8D0D",
+    "700": "#8F6A0A",
+    "800": "#5F4707",
+    "900": "#302303",
+  },
+  accentLight: {
+    "50": "#E9FBF3",
+    "100": "#C3F4DD",
+    "200": "#9CEDC7",
+    "300": "#75E5B1",
+    "400": "#4FDE9B",
+    "500": "#28D785",
+    "600": "#20AC6B",
+    "700": "#188150",
+    "800": "#105635",
+    "900": "#082B1B",
+  },
 };
 
 /** override chakra colors here */
