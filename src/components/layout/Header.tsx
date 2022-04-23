@@ -7,6 +7,7 @@ import {
   Stack,
   Text,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -69,7 +70,13 @@ const Header = () => {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack spacing={4} alignItems="center">
-          <Link href="/">Nifty Rewards</Link>
+          {/* <Link href="/">Nifty Rewards</Link> */}
+          <Image
+            width="200px"
+            objectFit="contain"
+            src="/logo.png"
+            alt="Dan Abramov"
+          />
           <HStack pl="4" spacing="4" display={{ base: "none", md: "flex" }}>
             <LinkItems />
           </HStack>

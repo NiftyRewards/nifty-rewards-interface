@@ -1,8 +1,8 @@
 import { DeepPartial, Theme } from "@chakra-ui/react";
 
 const fonts: DeepPartial<Theme["fonts"]> = {
-  body: "Verdana",
-  heading: "Verdana",
+  heading: "Azonix",
+  body: "Azonix",
 };
 
 export default fonts;

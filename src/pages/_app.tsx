@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ChakraProvider } from "@chakra-ui/react";
+import Fonts from "./fonts";
 import { EmotionCache } from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { DefaultSeo } from "next-seo";
@@ -34,20 +35,21 @@ const MyApp = ({
 
   return (
     <Web3AuthProvider chain={chain} web3AuthNetwork={web3AuthNetwork}>
-        <CacheProvider value={emotionCache}>
-          <ChakraProvider theme={theme}>
-            <Head>
-              <meta
-                name="viewport"
-                content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
-              />
-            </Head>
-            <DefaultSeo {...defaultSEOConfig} />
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </ChakraProvider>
-        </CacheProvider>
+      <CacheProvider value={emotionCache}>
+        <ChakraProvider theme={theme}>
+          <Fonts />
+          <Head>
+            <meta
+              name="viewport"
+              content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+            />
+          </Head>
+          <DefaultSeo {...defaultSEOConfig} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ChakraProvider>
+      </CacheProvider>
     </Web3AuthProvider>
   );
 };
