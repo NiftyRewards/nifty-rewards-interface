@@ -2,6 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 import { customTheme } from "larissa-ui";
 
 import colors from "./colors";
+import semanticTokens from "./semantic-tokens";
 // import components from "./components";
 import fonts from "./fonts";
 // import styles from "./styles";
@@ -19,6 +20,6 @@ import fonts from "./fonts";
 //   styles,
 // });
 
-const theme = extendTheme(customTheme, { colors, fonts });
+const theme = extendTheme(customTheme, { colors, fonts, semanticTokens });
 
 export default theme;
