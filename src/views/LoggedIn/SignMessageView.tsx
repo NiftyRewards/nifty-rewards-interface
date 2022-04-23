@@ -54,7 +54,7 @@ const SignMessageView = ({ connector }) => {
       <Text>
         signing the message essentially proves that you are indeed the owner of
         the wallet address niftyrewards will not perform any transactions or
-        require any approval from you
+        require any approval from you.
       </Text>
       <Button onClick={signTypedMessage}>Sign Message</Button>
     </>
