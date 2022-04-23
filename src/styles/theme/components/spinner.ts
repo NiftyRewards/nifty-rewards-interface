@@ -1,11 +1,11 @@
-import { cssVar, SystemStyleObject } from "@chakra-ui/theme-tools"
+import { cssVar, SystemStyleObject } from "@chakra-ui/theme-tools";
 
-const $size = cssVar("spinner-size")
+const $size = cssVar("spinner-size");
 
 const baseStyle: SystemStyleObject = {
   width: [$size.reference],
   height: [$size.reference],
-}
+};
 
 const sizes: Record<string, SystemStyleObject> = {
   xs: {
@@ -23,14 +23,14 @@ const sizes: Record<string, SystemStyleObject> = {
   xl: {
     [$size.variable]: "3rem",
   },
-}
+};
 
 const defaultProps = {
   size: "md",
-}
+};
 
 export default {
   baseStyle,
   sizes,
   defaultProps,
-}
+};

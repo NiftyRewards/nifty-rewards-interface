@@ -1,8 +1,12 @@
 import { radioAnatomy as parts } from "@chakra-ui/anatomy";
-import { PartsStyleFunction, PartsStyleObject, SystemStyleFunction } from "@chakra-ui/theme-tools";
+import {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleFunction,
+} from "@chakra-ui/theme-tools";
 import Checkbox from "./checkbox";
 
-const baseStyleControl: SystemStyleFunction = props => {
+const baseStyleControl: SystemStyleFunction = (props) => {
   const { control = {} } = Checkbox.baseStyle(props);
 
   return {
@@ -22,7 +26,7 @@ const baseStyleControl: SystemStyleFunction = props => {
   };
 };
 
-const baseStyle: PartsStyleFunction<typeof parts> = props => ({
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   label: Checkbox.baseStyle(props).label,
   control: baseStyleControl(props),
 });

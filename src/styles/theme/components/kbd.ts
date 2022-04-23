@@ -1,5 +1,5 @@
-import type { SystemStyleFunction } from "@chakra-ui/theme-tools"
-import { mode } from "@chakra-ui/theme-tools"
+import type { SystemStyleFunction } from "@chakra-ui/theme-tools";
+import { mode } from "@chakra-ui/theme-tools";
 
 const baseStyle: SystemStyleFunction = (props) => {
   return {
@@ -12,9 +12,9 @@ const baseStyle: SystemStyleFunction = (props) => {
     lineHeight: "normal",
     px: "0.4em",
     whiteSpace: "nowrap",
-  }
-}
+  };
+};
 
 export default {
   baseStyle,
-}
+};

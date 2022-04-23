@@ -1,5 +1,9 @@
 import { inputAnatomy as parts } from "@chakra-ui/anatomy";
-import type { PartsStyleFunction, PartsStyleObject, SystemStyleObject } from "@chakra-ui/theme-tools";
+import type {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleObject,
+} from "@chakra-ui/theme-tools";
 import { getColor, mode } from "@chakra-ui/theme-tools";
 
 const baseStyle: PartsStyleObject<typeof parts> = {
@@ -71,7 +75,7 @@ function getDefaults(props: Record<string, any>) {
   };
 }
 
-const variantOutline: PartsStyleFunction<typeof parts> = props => {
+const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
   const { theme } = props;
   const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props);
 
@@ -109,7 +113,7 @@ const variantOutline: PartsStyleFunction<typeof parts> = props => {
   };
 };
 
-const variantFilled: PartsStyleFunction<typeof parts> = props => {
+const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
   const { theme } = props;
   const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props);
 
@@ -145,7 +149,7 @@ const variantFilled: PartsStyleFunction<typeof parts> = props => {
   };
 };
 
-const variantFlushed: PartsStyleFunction<typeof parts> = props => {
+const variantFlushed: PartsStyleFunction<typeof parts> = (props) => {
   const { theme } = props;
   const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props);
 

@@ -1,11 +1,11 @@
-import { sliderAnatomy as parts } from "@chakra-ui/anatomy"
+import { sliderAnatomy as parts } from "@chakra-ui/anatomy";
 import type {
   PartsStyleFunction,
   StyleFunctionProps,
   SystemStyleFunction,
   SystemStyleObject,
-} from "@chakra-ui/theme-tools"
-import { mode, orient } from "@chakra-ui/theme-tools"
+} from "@chakra-ui/theme-tools";
+import { mode, orient } from "@chakra-ui/theme-tools";
 
 function thumbOrientation(props: StyleFunctionProps): SystemStyleObject {
   return orient({
@@ -24,11 +24,11 @@ function thumbOrientation(props: StyleFunctionProps): SystemStyleObject {
         transform: `translateY(-50%) scale(1.15)`,
       },
     },
-  })
+  });
 }
 
 const baseStyleContainer: SystemStyleFunction = (props) => {
-  const { orientation } = props
+  const { orientation } = props;
 
   return {
     display: "inline-block",
@@ -44,8 +44,8 @@ const baseStyleContainer: SystemStyleFunction = (props) => {
       vertical: { h: "100%" },
       horizontal: { w: "100%" },
     }),
-  }
-}
+  };
+};
 
 const baseStyleTrack: SystemStyleFunction = (props) => {
   return {
@@ -55,8 +55,8 @@ const baseStyleTrack: SystemStyleFunction = (props) => {
     _disabled: {
       bg: mode("gray.300", "whiteAlpha.300")(props),
     },
-  }
-}
+  };
+};
 
 const baseStyleThumb: SystemStyleFunction = (props) => {
   return {
@@ -76,25 +76,25 @@ const baseStyleThumb: SystemStyleFunction = (props) => {
     _focus: { boxShadow: "outline" },
     _disabled: { bg: "gray.300" },
     ...thumbOrientation(props),
-  }
-}
+  };
+};
 
 const baseStyleFilledTrack: SystemStyleFunction = (props) => {
-  const { colorScheme: c } = props
+  const { colorScheme: c } = props;
 
   return {
     width: "inherit",
     height: "inherit",
     bg: mode(`${c}.500`, `${c}.200`)(props),
-  }
-}
+  };
+};
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   container: baseStyleContainer(props),
   track: baseStyleTrack(props),
   thumb: baseStyleThumb(props),
   filledTrack: baseStyleFilledTrack(props),
-})
+});
 
 const sizeLg: PartsStyleFunction<typeof parts> = (props) => {
   return {
@@ -104,8 +104,8 @@ const sizeLg: PartsStyleFunction<typeof parts> = (props) => {
       horizontal: { h: "4px" },
       vertical: { w: "4px" },
     }),
-  }
-}
+  };
+};
 
 const sizeMd: PartsStyleFunction<typeof parts> = (props) => {
   return {
@@ -115,8 +115,8 @@ const sizeMd: PartsStyleFunction<typeof parts> = (props) => {
       horizontal: { h: "4px" },
       vertical: { w: "4px" },
     }),
-  }
-}
+  };
+};
 
 const sizeSm: PartsStyleFunction<typeof parts> = (props) => {
   return {
@@ -126,23 +126,23 @@ const sizeSm: PartsStyleFunction<typeof parts> = (props) => {
       horizontal: { h: "2px" },
       vertical: { w: "2px" },
     }),
-  }
-}
+  };
+};
 
 const sizes = {
   lg: sizeLg,
   md: sizeMd,
   sm: sizeSm,
-}
+};
 
 const defaultProps = {
   size: "md",
   colorScheme: "blue",
-}
+};
 
 export default {
   parts: parts.keys,
   sizes,
   baseStyle,
   defaultProps,
-}
+};

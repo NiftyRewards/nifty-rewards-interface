@@ -1,23 +1,23 @@
-import { popoverAnatomy as parts } from "@chakra-ui/anatomy"
+import { popoverAnatomy as parts } from "@chakra-ui/anatomy";
 import type {
   PartsStyleFunction,
   SystemStyleFunction,
   SystemStyleObject,
-} from "@chakra-ui/theme-tools"
-import { cssVar, mode } from "@chakra-ui/theme-tools"
+} from "@chakra-ui/theme-tools";
+import { cssVar, mode } from "@chakra-ui/theme-tools";
 
-const $popperBg = cssVar("popper-bg")
+const $popperBg = cssVar("popper-bg");
 
-const $arrowBg = cssVar("popper-arrow-bg")
-const $arrowShadowColor = cssVar("popper-arrow-shadow-color")
+const $arrowBg = cssVar("popper-arrow-bg");
+const $arrowShadowColor = cssVar("popper-arrow-shadow-color");
 
 const baseStylePopper: SystemStyleObject = {
   zIndex: 10,
-}
+};
 
 const baseStyleContent: SystemStyleFunction = (props) => {
-  const bg = mode("white", "gray.700")(props)
-  const shadowColor = mode("gray.200", "whiteAlpha.300")(props)
+  const bg = mode("white", "gray.700")(props);
+  const shadowColor = mode("gray.200", "whiteAlpha.300")(props);
 
   return {
     [$popperBg.variable]: `colors.${bg}`,
@@ -34,25 +34,25 @@ const baseStyleContent: SystemStyleFunction = (props) => {
       outline: 0,
       boxShadow: "outline",
     },
-  }
-}
+  };
+};
 
 const baseStyleHeader: SystemStyleObject = {
   px: 3,
   py: 2,
   borderBottomWidth: "1px",
-}
+};
 
 const baseStyleBody: SystemStyleObject = {
   px: 3,
   py: 2,
-}
+};
 
 const baseStyleFooter: SystemStyleObject = {
   px: 3,
   py: 2,
   borderTopWidth: "1px",
-}
+};
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   popper: baseStylePopper,
@@ -61,9 +61,9 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   body: baseStyleBody,
   footer: baseStyleFooter,
   arrow: {},
-})
+});
 
 export default {
   parts: parts.keys,
   baseStyle,
-}
+};

@@ -1,12 +1,12 @@
-import { selectAnatomy as parts } from "@chakra-ui/anatomy"
+import { selectAnatomy as parts } from "@chakra-ui/anatomy";
 import type {
   PartsStyleFunction,
   PartsStyleObject,
   SystemStyleFunction,
   SystemStyleObject,
-} from "@chakra-ui/theme-tools"
-import { mode } from "@chakra-ui/theme-tools"
-import Input from "./input"
+} from "@chakra-ui/theme-tools";
+import { mode } from "@chakra-ui/theme-tools";
+import Input from "./input";
 
 const baseStyleField: SystemStyleFunction = (props) => {
   return {
@@ -18,8 +18,8 @@ const baseStyleField: SystemStyleFunction = (props) => {
     "> option, > optgroup": {
       bg: mode("white", "gray.700")(props),
     },
-  }
-}
+  };
+};
 
 const baseStyleIcon: SystemStyleObject = {
   width: "1.5rem",
@@ -31,12 +31,12 @@ const baseStyleIcon: SystemStyleObject = {
   _disabled: {
     opacity: 0.5,
   },
-}
+};
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   field: baseStyleField(props),
   icon: baseStyleIcon,
-})
+});
 
 const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   ...Input.sizes,
@@ -44,7 +44,7 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
     ...Input.sizes.xs,
     icon: { insetEnd: "0.25rem" },
   },
-}
+};
 
 export default {
   parts: parts.keys,
@@ -52,4 +52,4 @@ export default {
   sizes,
   variants: Input.variants,
   defaultProps: Input.defaultProps,
-}
+};

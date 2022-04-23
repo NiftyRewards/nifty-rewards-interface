@@ -1,8 +1,12 @@
 import { menuAnatomy as parts } from "@chakra-ui/anatomy";
-import type { PartsStyleFunction, SystemStyleFunction, SystemStyleObject } from "@chakra-ui/theme-tools";
+import type {
+  PartsStyleFunction,
+  SystemStyleFunction,
+  SystemStyleObject,
+} from "@chakra-ui/theme-tools";
 import { mode } from "@chakra-ui/theme-tools";
 
-const baseStyleList: SystemStyleFunction = props => {
+const baseStyleList: SystemStyleFunction = (props) => {
   return {
     bg: mode("#fff", "gray.700")(props),
     boxShadow: mode("sm", "dark-lg")(props),
@@ -15,7 +19,7 @@ const baseStyleList: SystemStyleFunction = props => {
   };
 };
 
-const baseStyleItem: SystemStyleFunction = props => {
+const baseStyleItem: SystemStyleFunction = (props) => {
   return {
     py: "0.4rem",
     px: "0.8rem",
@@ -62,7 +66,7 @@ const baseStyleButton: SystemStyleObject = {
   transitionDuration: "normal",
 };
 
-const baseStyle: PartsStyleFunction<typeof parts> = props => ({
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   button: baseStyleButton,
   list: baseStyleList(props),
   item: baseStyleItem(props),

@@ -1,10 +1,10 @@
-import { tableAnatomy as parts } from "@chakra-ui/anatomy"
-import { mode } from "@chakra-ui/theme-tools"
+import { tableAnatomy as parts } from "@chakra-ui/anatomy";
+import { mode } from "@chakra-ui/theme-tools";
 import type {
   PartsStyleFunction,
   PartsStyleObject,
   SystemStyleObject,
-} from "@chakra-ui/theme-tools"
+} from "@chakra-ui/theme-tools";
 
 const baseStyle: PartsStyleObject<typeof parts> = {
   table: {
@@ -28,16 +28,16 @@ const baseStyle: PartsStyleObject<typeof parts> = {
     textAlign: "center",
     fontWeight: "medium",
   },
-}
+};
 
 const numericStyles: SystemStyleObject = {
   "&[data-is-numeric=true]": {
     textAlign: "end",
   },
-}
+};
 
 const variantSimple: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
+  const { colorScheme: c } = props;
 
   return {
     th: {
@@ -61,11 +61,11 @@ const variantSimple: PartsStyleFunction<typeof parts> = (props) => {
         },
       },
     },
-  }
-}
+  };
+};
 
 const variantStripe: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
+  const { colorScheme: c } = props;
 
   return {
     th: {
@@ -102,14 +102,14 @@ const variantStripe: PartsStyleFunction<typeof parts> = (props) => {
         },
       },
     },
-  }
-}
+  };
+};
 
 const variants = {
   simple: variantSimple,
   striped: variantStripe,
   unstyled: {},
-}
+};
 
 const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   sm: {
@@ -167,13 +167,13 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
       fontSize: "md",
     },
   },
-}
+};
 
 const defaultProps = {
   variant: "simple",
   size: "md",
   colorScheme: "gray",
-}
+};
 
 export default {
   parts: parts.keys,
@@ -181,4 +181,4 @@ export default {
   variants,
   sizes,
   defaultProps,
-}
+};

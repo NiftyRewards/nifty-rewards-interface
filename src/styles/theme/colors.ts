@@ -1,7 +1,9 @@
 import { DeepPartial, Theme } from "@chakra-ui/react";
 
 /** extend additional color here */
-const extendedColors: DeepPartial<Record<string, Theme["colors"]["current" | "purple"]>> = {
+const extendedColors: DeepPartial<
+  Record<string, Theme["colors"]["current" | "purple"]>
+> = {
   // white: "#fff",
   // space: "#0E0333",
   // spacepink: "#301041",
