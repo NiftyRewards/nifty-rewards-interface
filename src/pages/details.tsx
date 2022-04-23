@@ -1,19 +1,36 @@
 import {
+  Avatar,
+  Box,
+  Button,
   Heading,
   HStack,
+  Image,
   SimpleGrid,
   Text,
+  useDisclosure,
   VStack,
-  Image,
-  Button,
-  Flex,
-  Box,
 } from "@chakra-ui/react";
-import { useWeb3Auth } from "../services/web3auth";
-import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
-import { TimeIcon, CheckCircleIcon } from "@chakra-ui/icons";
-import router from "next/router";
 import vouchers from "data/vouchers";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
+import React, { useState } from "react";
+import { useToast } from "@chakra-ui/react";
 
 const Hero = () => {
   return (
@@ -90,8 +107,12 @@ const Card = () => {
 };
 
 const Vouchers = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <VStack w="full" justify="center">
+      <VoucherModal isOpen={isOpen} onClose={onClose} />
+
       <Heading>Available vouchers</Heading>
       <SimpleGrid columns={[1, null, 2]} spacing="40px">
         {vouchers.map((voucher) => (
@@ -102,15 +123,95 @@ const Vouchers = () => {
             alignItems="center"
             justify="center"
             p="4"
+            onClick={onOpen}
+            key={voucher.text}
           >
             <Text color="black">{voucher.text}</Text>
-            <Text color="black" fontSize="small">{voucher.text2}</Text>
+            <Text color="black" fontSize="small">
+              {voucher.text2}
+            </Text>
           </VStack>
         ))}
       </SimpleGrid>
     </VStack>
   );
 };
+
+function VoucherModal({ isOpen, onClose }) {
+  const finalRef = React.useRef();
+  const toast = useToast();
+  const [isRedeeming, setIsRedeeming] = useState(false);
+
+  const redeemVoucher = () => {
+    toast({
+      title: "10% off footwear",
+      description: "You have successfully redeemed",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
+    console.log("redeem voucher");
+    setIsRedeeming(true);
+    setTimeout(() => {
+      toast({
+        title: "10% off footwear",
+        description: "You have successfully redeemed",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      setIsRedeeming(false);
+      onClose();
+    }, 2000);
+  };
+
+  return (
+    <>
+      <Box ref={finalRef} tabIndex={-1} aria-label="Focus moved to this box">
+        Some other content that'll receive focus on close.
+      </Box>
+
+      <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader w="full" textAlign="center" fontSize="3xl">
+            10% off Footwear
+          </ModalHeader>
+          {/* <ModalCloseButton /> */}
+          <ModalBody>
+            Terms and conditions:
+            <UnorderedList fontSize="small">
+              <ListItem>
+                Please make sure to read the terms and conditions before
+                redemption
+              </ListItem>
+              <ListItem>
+                Each specific voucher can only be redeemed once
+              </ListItem>
+              <ListItem>
+                Make sure that this voucher is presented to the relevant parties{" "}
+              </ListItem>
+              <ListItem>
+                By clicking on “redeem” you agree to the terms and conditions
+                set out by the counter party
+              </ListItem>
+            </UnorderedList>
+          </ModalBody>
+
+          <ModalFooter w="full" justifyContent="space-between">
+            <Button w="full" colorScheme="blue" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button w="full" isLoading={isRedeeming} onClick={redeemVoucher}>
+              Redeem
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}
 
 const Details = () => {
   return (
