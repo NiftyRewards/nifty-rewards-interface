@@ -37,6 +37,8 @@ const LinkItems = () => {
   return (
     <>
       <LinkItem href="/">Home</LinkItem>
+      <LinkItem href="/userhome">Explore</LinkItem>
+      <LinkItem href="/Profile">Profile</LinkItem>
     </>
   );
 };

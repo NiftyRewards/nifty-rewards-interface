@@ -172,12 +172,13 @@ const WalletConnectView = () => {
             : "Not connected"}
         </Text>
         {state.connector && state.connector.connected ? (
-          <Button onClick={killSession}>Disconnect</Button>
+          <>
+            <Button onClick={killSession}>Disconnect</Button>
+            <SignMessageView connector={state.connector} />
+          </>
         ) : (
           <Button onClick={connect}>Connect with WalletConnect</Button>
         )}
-
-        <SignMessageView connector={state.connector} />
       </VStack>
     </>
   );

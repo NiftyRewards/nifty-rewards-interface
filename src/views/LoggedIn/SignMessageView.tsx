@@ -56,7 +56,7 @@ const SignMessageView = ({ connector }) => {
         the wallet address niftyrewards will not perform any transactions or
         require any approval from you
       </Text>
-      <Button onClick={signTypedMessage}>Hello</Button>
+      <Button onClick={signTypedMessage}>Sign Message</Button>
     </>
   );
 };
