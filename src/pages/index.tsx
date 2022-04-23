@@ -1,9 +1,9 @@
 import { Button, Heading, VStack, Text } from "@chakra-ui/react";
 // import AuthComponent from "../components/AuthComponent";
-import dynamic from "next/dynamic";
-const AuthComponent = dynamic(() => import("../components/AuthComponent"), {
-  ssr: false,
-});
+// import dynamic from "next/dynamic";
+// const AuthComponent = dynamic(() => import("../components/AuthComponent"), {
+//   ssr: false,
+// });
 import { useWeb3Auth } from "../services/web3auth";
 
 const Home = () => {
@@ -21,17 +21,24 @@ const Home = () => {
     chain,
   } = useWeb3Auth();
 
-  const loggedInView = <Button onClick={logout}>Log Out</Button>;
+  const loggedInView = (
+    <>
+      <Button onClick={logout}>Log Out</Button>
+    </>
+  );
 
-  const unloggedInView = <Button onClick={login}>Log In</Button>;
+  const unloggedInView = (
+    <>
+      <VStack align="center" justify="center">
+        <Button onClick={login}>Log In</Button>
+      </VStack>
+    </>
+  );
 
   return (
     <VStack>
       <Heading>Heading</Heading>
       {provider ? loggedInView : unloggedInView}
-      <Text>Text</Text>
-      <Button>Button</Button>
-      <AuthComponent />
     </VStack>
   );
 };

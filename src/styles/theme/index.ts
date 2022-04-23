@@ -1,9 +1,9 @@
 import { extendTheme } from "@chakra-ui/react";
 import { customTheme } from "larissa-ui";
 
-// import colors from "./colors";
+import colors from "./colors";
 // import components from "./components";
-// import fonts from "./fonts";
+import fonts from "./fonts";
 // import styles from "./styles";
 
 // const config = {
@@ -19,6 +19,6 @@ import { customTheme } from "larissa-ui";
 //   styles,
 // });
 
-const theme = extendTheme(customTheme);
+const theme = extendTheme(customTheme, { colors, fonts });
 
 export default theme;

@@ -8,7 +8,6 @@ import Head from "next/head";
 import "@fontsource/lexend/latin.css";
 
 import defaultSEOConfig from "../../next-seo.config";
-import { SupabaseProvider } from "../supabase";
 import Layout from "../components/layout";
 import createEmotionCache from "../styles/createEmotionCache";
 import theme from "../styles/theme";
@@ -35,7 +34,6 @@ const MyApp = ({
 
   return (
     <Web3AuthProvider chain={chain} web3AuthNetwork={web3AuthNetwork}>
-      <SupabaseProvider>
         <CacheProvider value={emotionCache}>
           <ChakraProvider theme={theme}>
             <Head>
@@ -50,7 +48,6 @@ const MyApp = ({
             </Layout>
           </ChakraProvider>
         </CacheProvider>
-      </SupabaseProvider>
     </Web3AuthProvider>
   );
 };
