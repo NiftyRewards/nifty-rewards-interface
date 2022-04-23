@@ -60,9 +60,8 @@ const Header = () => {
         display="flex"
         p={2}
         maxW="7xl"
-        wrap="wrap"
-        align="center"
-        justify="space-between"
+        alignItems="center"
+        justifyContent="space-between"
       >
         <IconButton
           size="md"
