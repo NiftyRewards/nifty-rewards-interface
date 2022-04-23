@@ -6,13 +6,8 @@ const UnloggedInView = () => {
   const { login } = useWeb3Auth();
   return (
     <>
-      <VStack align="center" justify="center">
-        <Image
-          src="/colorfulBackground.jpeg"
-          alt="Picture of the author"
-          width={500}
-          height={500}
-        />
+      <VStack mt="8" px="8" py="16" borderRadius="md" bgImage="/login-bg.png" bgPos="center" bgSize="800px" align="center" justify="center">
+
         <Heading>Nifty Rewards</Heading>
         <Text>
           Unlock rewards and provide real world utilities for your nft

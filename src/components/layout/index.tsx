@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
           <Box as="main" pt="6">
             {children}
           </Box>
-          <Footer />
+          {/* <Footer /> */}
           <BottomBar />
         </Box>
       </Box>

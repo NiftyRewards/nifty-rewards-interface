@@ -8,10 +8,11 @@ import {
   Text,
   useDisclosure,
   Image,
+  Button,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import { useWeb3Auth } from "../../services/web3auth";
 import ThemeToggle from "./ThemeToggle";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -42,6 +43,7 @@ const LinkItems = () => {
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { provider, logout } = useWeb3Auth();
 
   return (
     <Box
@@ -50,7 +52,7 @@ const Header = () => {
       position="fixed"
       top="0"
       backdropFilter="blur(10px)"
-      zIndex={1}
+      // zIndex={1}
     >
       <Container
         display="flex"
@@ -83,6 +85,7 @@ const Header = () => {
         </HStack>
         <HStack marginLeft="auto">
           <ThemeToggle />
+          {provider && <Button onClick={logout}>Log Out</Button>}
         </HStack>
       </Container>
 

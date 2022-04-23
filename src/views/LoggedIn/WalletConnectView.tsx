@@ -4,12 +4,12 @@ import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "@walletconnect/qrcode-modal";
 import { IInternalEvent } from "@walletconnect/types";
 
-import { IAssetData } from "../helpers/types";
+import { IAssetData } from "../../helpers/types";
 import {
   apiGetAccountAssets,
   apiGetGasPrices,
   apiGetAccountNonce,
-} from "../helpers/api";
+} from "../../helpers/api";
 
 import { useEffect, useState } from "react";
 
