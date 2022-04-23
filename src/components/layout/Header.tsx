@@ -34,7 +34,7 @@ const LinkItem = ({ href, children, ...props }: any) => {
 const LinkItems = () => {
   return (
     <>
-      <LinkItem href="/discounts">Discounts</LinkItem>
+      <LinkItem href="/">Home</LinkItem>
     </>
   );
 };
