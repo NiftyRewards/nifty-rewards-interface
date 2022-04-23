@@ -11,6 +11,7 @@ import { useWeb3Auth } from "../services/web3auth";
 import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
 import { TimeIcon, CheckCircleIcon } from "@chakra-ui/icons";
 import router from "next/router";
+import campaigns from "data/campaigns";
 
 const Hero = () => {
   return (
@@ -34,27 +35,32 @@ const Hero = () => {
         </VStack>
       </VStack>
       <HStack w="full" align="center" justify="center">
-        <Avatar bgColor="transparent" size="3xl" name="Logos" src="/assets/HeroLogos.png" />
+        <Avatar
+          bgColor="transparent"
+          size="3xl"
+          name="Logos"
+          src="/assets/HeroLogos.png"
+        />
       </HStack>
     </HStack>
   );
 };
 
 const Cards = () => {
+  console.log({ campaigns });
   return (
     <VStack w="full" p="8" align="start">
       <Heading>available campaigns for you</Heading>
       <SimpleGrid columns={[2, null, 3]} spacing="40px">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {campaigns.map((campaign, i) => {
+          return <Card key={i} campaign={campaign} />;
+        })}
       </SimpleGrid>
     </VStack>
   );
 };
-
-const Card = () => {
+const Card = ({ campaign }) => {
+  console.log({ campaign });
   return (
     <VStack w="full" bg="tomato" layerStyle="solid-hover2" justify="center">
       <Image
@@ -64,16 +70,16 @@ const Card = () => {
         alt="Card Image"
         borderRadius="8"
       />
-      <Heading>Azuki x nike</Heading>
-      <Text>10% off footwear 30% off apparels free one month membership</Text>
+      <Heading>{campaign.heading}</Heading>
+      <Text>{campaign.description}</Text>
       <HStack>
         <TimeIcon w={6} h={6} />
         <Text fontSize="small" color="gray.200">
-          5 days 4 hours
+          {campaign.time}
         </Text>
         <CheckCircleIcon w={6} h={6} />
         <Text fontSize="small" color="gray.200">
-          300 redeemed
+          {campaign.quantity}
         </Text>
       </HStack>
       <Button
