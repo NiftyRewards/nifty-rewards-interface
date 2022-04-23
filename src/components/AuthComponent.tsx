@@ -10,6 +10,7 @@ const AuthComponent = () => {
       return;
     }
     const provider = await web3auth.connect();
+    console.log({ provider });
   };
 
   return (
