@@ -1,4 +1,5 @@
 import { Button, Heading, Text } from "@chakra-ui/react";
+import router from "next/router";
 
 const SignMessageView = ({ connector }) => {
   const signTypedMessage = () => {
@@ -40,6 +41,7 @@ const SignMessageView = ({ connector }) => {
       .then((result) => {
         // Returns signature.
         console.log(result);
+        router.push("/userhome")
       })
       .catch((error) => {
         // Error returned when rejected
