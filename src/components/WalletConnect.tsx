@@ -8,8 +8,7 @@ const WalletConnect = () => {
   const init = async () => {
     // 1. Create a WalletConnect Client
     const client = await WalletConnectClient.init({
-      projectId:
-        "b03ca2ba0fbc985131f732d6fee93651",
+      projectId: "b03ca2ba0fbc985131f732d6fee93651",
       relayUrl: "wss://relay.walletconnect.com",
       metadata: {
         name: "Nifty Rewards",
