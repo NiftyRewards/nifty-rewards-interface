@@ -11,6 +11,7 @@ import { useWeb3Auth } from "../services/web3auth";
 import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
 import { TimeIcon, CheckCircleIcon } from "@chakra-ui/icons";
 import router from "next/router";
+import campaigns from "data/campaigns";
 
 const Hero = () => {
   return (
@@ -34,56 +35,65 @@ const Hero = () => {
         </VStack>
       </VStack>
       <HStack w="full" align="center" justify="center">
-        <Avatar bgColor="transparent" size="3xl" name="Logos" src="/assets/HeroLogos.png" />
+        <Avatar
+          bgColor="transparent"
+          size="3xl"
+          name="Logos"
+          src="/assets/HeroLogos.png"
+        />
       </HStack>
     </HStack>
   );
 };
 
 const Cards = () => {
+  console.log({ campaigns });
   return (
     <VStack w="full" p="8" align="start">
       <Heading>available campaigns for you</Heading>
       <SimpleGrid columns={[2, null, 3]} spacing="40px">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {campaigns.map((campaign, i) => {
+          return <Card key={i} campaign={campaign} />;
+        })}
       </SimpleGrid>
     </VStack>
   );
 };
-
-const Card = () => {
+const Card = ({ campaign }) => {
+  console.log({ campaign });
   return (
-    <VStack w="full" bg="tomato" layerStyle="solid-hover2" justify="center">
-      <Image
-        width="full"
-        objectFit="contain"
-        src="/CardImage.png"
-        alt="Card Image"
-        borderRadius="8"
-      />
-      <Heading>Azuki x nike</Heading>
-      <Text>10% off footwear 30% off apparels free one month membership</Text>
-      <HStack>
-        <TimeIcon w={6} h={6} />
-        <Text fontSize="small" color="gray.200">
-          5 days 4 hours
-        </Text>
-        <CheckCircleIcon w={6} h={6} />
-        <Text fontSize="small" color="gray.200">
-          300 redeemed
-        </Text>
-      </HStack>
-      <Button
-        w="full"
-        onClick={() => {
-          router.push("/details");
-        }}
-      >
-        View
-      </Button>
+    <VStack w="full" layerStyle="solid-hover2" justify="space-between">
+      <VStack>
+        <Image
+          width="full"
+          objectFit="contain"
+          src={campaign.image}
+          alt="Card Image"
+          borderRadius="8"
+        />
+        <Heading>{campaign.heading}</Heading>
+        <Text>{campaign.description}</Text>
+      </VStack>
+      <VStack>
+        <HStack>
+          <TimeIcon w={6} h={6} />
+          <Text fontSize="small" color="gray.200">
+            {campaign.time}
+          </Text>
+          <CheckCircleIcon w={6} h={6} />
+          <Text fontSize="small" color="gray.200">
+            {campaign.quantity}
+          </Text>
+        </HStack>
+        <Button
+          w="full"
+          onClick={() => {
+            router.push("/details");
+          }}
+        >
+          View
+        </Button>
+      </VStack>
     </VStack>
   );
 };

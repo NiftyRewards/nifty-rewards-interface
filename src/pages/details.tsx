@@ -5,32 +5,22 @@ import {
   Heading,
   HStack,
   Image,
+  ListItem,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   SimpleGrid,
   Text,
+  UnorderedList,
   useDisclosure,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import vouchers from "data/vouchers";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-} from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useToast } from "@chakra-ui/react";
 
 const Hero = () => {
   return (
@@ -67,7 +57,7 @@ const NFTDetails = () => {
         <Heading>eligible NFTs</Heading>
         <HStack>
           <Card />
-          <Card />
+          <Card2 />
         </HStack>
       </VStack>
       <VStack>
@@ -101,6 +91,23 @@ const Card = () => {
       />
       <Box w="full" textAlign="center">
         <Text>azuki #9647</Text>
+      </Box>
+    </VStack>
+  );
+};
+
+const Card2 = () => {
+  return (
+    <VStack w="full" justify="center" bg="gray.800" borderRadius="lg">
+      <Image
+        width="full"
+        objectFit="contain"
+        src="/assets/azuki2.png"
+        alt="Card Image"
+        // borderRadius="8"
+      />
+      <Box w="full" textAlign="center">
+        <Text>azuki #9107</Text>
       </Box>
     </VStack>
   );
