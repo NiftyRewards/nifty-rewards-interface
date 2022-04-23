@@ -5,7 +5,7 @@ export const CHAIN_CONFIG = {
     displayName: "Ethereum Mainnet",
     chainNamespace: CHAIN_NAMESPACES.EIP155,
     chainId: "0x1",
-    rpcTarget: `https://mainnet.infura.io/v3/776218ac4734478c90191dde8cae483c`,
+    rpcTarget: `https://mainnet.infura.io/v3/cf8a5d95c63d455b92265f8b63c9db70`,
     blockExplorer: "https://etherscan.io/",
     ticker: "ETH",
     tickerName: "Ethereum",

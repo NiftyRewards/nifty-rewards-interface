@@ -34,15 +34,24 @@ const LoggedInView = () => {
 
   return (
     <>
-      <VStack pt="8" align="start" justify="center">
-
-        <Heading>Bind your web3 wallet</Heading>
-        <Text>
+      <VStack
+        mt="8"
+        px="8"
+        py="16"
+        borderRadius="md"
+        bgImage="/login-bg.png"
+        bgPos="center"
+        bgSize="800px"
+        align="center"
+        justify="center"
+      >
+        <Heading color="primary.400">Bind your web3 wallet</Heading>
+        <Text textAlign="center">
           verify your web3 wallet on our platform to bind your nft wallet Find
           out more
         </Text>
-        <WalletConnectView />
       </VStack>
+      <WalletConnectView />
     </>
   );
 };

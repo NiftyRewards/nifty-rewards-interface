@@ -41,7 +41,7 @@ const SignMessageView = ({ connector }) => {
       .then((result) => {
         // Returns signature.
         console.log(result);
-        router.push("/userhome")
+        router.push("/userhome");
       })
       .catch((error) => {
         // Error returned when rejected
@@ -50,8 +50,8 @@ const SignMessageView = ({ connector }) => {
   };
   return (
     <>
-      <Heading>Verify wallet</Heading>
-      <Text>
+      <Heading pt="8" color="primary.400">Verify wallet</Heading>
+      <Text textAlign="center">
         signing the message essentially proves that you are indeed the owner of
         the wallet address niftyrewards will not perform any transactions or
         require any approval from you.

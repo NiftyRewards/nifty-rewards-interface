@@ -159,8 +159,8 @@ const WalletConnectView = () => {
   return (
     <>
       <VStack align="center" justify="center">
-        <Heading>Connect your wallet</Heading>
-        <Text>
+        <Heading color="primary.400">Connect your wallet</Heading>
+        <Text textAlign="center">
           each wallet can only be binded once to your web3auth account you can
           bind multiple wallets to a single web3auth account
         </Text>
