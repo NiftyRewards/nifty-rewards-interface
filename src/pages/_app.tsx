@@ -14,6 +14,9 @@ import createEmotionCache from "../styles/createEmotionCache";
 import theme from "../styles/theme";
 import "../styles/globals.css";
 
+import { Web3AuthProvider } from "services/web3auth";
+// import { useState, useEffect } from "react";
+
 const clientSideEmotionCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {
@@ -25,23 +28,30 @@ const MyApp = ({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }: MyAppProps) => {
+  // const [web3AuthNetwork, setWeb3AuthNetwork] = useState<WEB3AUTH_NETWORK_TYPE>("mainnet");
+  // const [chain, setChain] = useState<CHAIN_CONFIG_TYPE>("mainnet");
+  const web3AuthNetwork = "mainnet";
+  const chain = "mainnet";
+
   return (
-    <SupabaseProvider>
-      <CacheProvider value={emotionCache}>
-        <ChakraProvider theme={theme}>
-          <Head>
-            <meta
-              name="viewport"
-              content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
-            />
-          </Head>
-          <DefaultSeo {...defaultSEOConfig} />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ChakraProvider>
-      </CacheProvider>
-    </SupabaseProvider>
+    <Web3AuthProvider chain={chain} web3AuthNetwork={web3AuthNetwork}>
+      <SupabaseProvider>
+        <CacheProvider value={emotionCache}>
+          <ChakraProvider theme={theme}>
+            <Head>
+              <meta
+                name="viewport"
+                content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+              />
+            </Head>
+            <DefaultSeo {...defaultSEOConfig} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ChakraProvider>
+        </CacheProvider>
+      </SupabaseProvider>
+    </Web3AuthProvider>
   );
 };
 
