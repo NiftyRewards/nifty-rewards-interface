@@ -1,11 +1,12 @@
 import { Button, Heading, Text, VStack } from "@chakra-ui/react";
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "@walletconnect/qrcode-modal";
-import { IInternalEvent } from "@walletconnect/types";
 import { useEffect, useState } from "react";
-import { apiGetAccountAssets } from "../../helpers/api";
+
 import { IAssetData } from "../../helpers/types";
+import { IInternalEvent } from "@walletconnect/types";
+import QRCodeModal from "@walletconnect/qrcode-modal";
 import SignMessageView from "./SignMessageView";
+import WalletConnect from "@walletconnect/client";
+import { apiGetAccountAssets } from "../../helpers/api";
 
 interface IAppState {
   connector: WalletConnect | null;
@@ -174,7 +175,11 @@ const WalletConnectView = () => {
         {state.connector && state.connector.connected ? (
           <>
             <Button onClick={killSession}>Disconnect</Button>
-            <SignMessageView connector={state.connector} />
+            <SignMessageView
+              connector={state.connector}
+              address_w3a={""}
+              address_to_bind={""}
+            />
           </>
         ) : (
           <Button onClick={connect}>Connect with WalletConnect</Button>

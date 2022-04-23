@@ -1,7 +1,8 @@
 import { Button, Heading, Text } from "@chakra-ui/react";
+
 import router from "next/router";
 
-const SignMessageView = ({ connector }) => {
+const SignMessageView = ({ connector, address_w3a, address_to_bind }) => {
   const signTypedMessage = () => {
     // Draft Message Parameters
     const typedData = {
@@ -10,7 +11,6 @@ const SignMessageView = ({ connector }) => {
           { name: "name", type: "string" },
           { name: "version", type: "string" },
           { name: "chainId", type: "uint256" },
-          { name: "verifyingContract", type: "address" },
         ],
         BindingRequest: [
           { name: "address_w3a", type: "address" },
@@ -19,14 +19,13 @@ const SignMessageView = ({ connector }) => {
       },
       primaryType: "BindingRequest",
       domain: {
-        name: "Example Dapp",
+        name: "NiftyRewards",
         version: "1.0",
         chainId: 1,
-        verifyingContract: "0x0000000000000000000000000000000000000000",
       },
       message: {
-        address_w3a: "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        address_b: "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbb",
+        address_w3a: address_w3a,
+        address_to_bind: address_to_bind,
       },
     };
 
@@ -50,7 +49,9 @@ const SignMessageView = ({ connector }) => {
   };
   return (
     <>
-      <Heading pt="8" color="primary.400">Verify wallet</Heading>
+      <Heading pt="8" color="primary.400">
+        Verify wallet
+      </Heading>
       <Text textAlign="center">
         signing the message essentially proves that you are indeed the owner of
         the wallet address niftyrewards will not perform any transactions or
