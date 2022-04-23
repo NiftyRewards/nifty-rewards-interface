@@ -62,34 +62,38 @@ const Cards = () => {
 const Card = ({ campaign }) => {
   console.log({ campaign });
   return (
-    <VStack w="full" bg="tomato" layerStyle="solid-hover2" justify="center">
-      <Image
-        width="full"
-        objectFit="contain"
-        src="/CardImage.png"
-        alt="Card Image"
-        borderRadius="8"
-      />
-      <Heading>{campaign.heading}</Heading>
-      <Text>{campaign.description}</Text>
-      <HStack>
-        <TimeIcon w={6} h={6} />
-        <Text fontSize="small" color="gray.200">
-          {campaign.time}
-        </Text>
-        <CheckCircleIcon w={6} h={6} />
-        <Text fontSize="small" color="gray.200">
-          {campaign.quantity}
-        </Text>
-      </HStack>
-      <Button
-        w="full"
-        onClick={() => {
-          router.push("/details");
-        }}
-      >
-        View
-      </Button>
+    <VStack w="full" layerStyle="solid-hover2" justify="space-between">
+      <VStack>
+        <Image
+          width="full"
+          objectFit="contain"
+          src={campaign.image}
+          alt="Card Image"
+          borderRadius="8"
+        />
+        <Heading>{campaign.heading}</Heading>
+        <Text>{campaign.description}</Text>
+      </VStack>
+      <VStack>
+        <HStack>
+          <TimeIcon w={6} h={6} />
+          <Text fontSize="small" color="gray.200">
+            {campaign.time}
+          </Text>
+          <CheckCircleIcon w={6} h={6} />
+          <Text fontSize="small" color="gray.200">
+            {campaign.quantity}
+          </Text>
+        </HStack>
+        <Button
+          w="full"
+          onClick={() => {
+            router.push("/details");
+          }}
+        >
+          View
+        </Button>
+      </VStack>
     </VStack>
   );
 };

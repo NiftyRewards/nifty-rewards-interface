@@ -1,6 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 
-const CreateCampaign = () => {
+const CampaignApproval = () => {
 
   return (
     <VStack>
@@ -8,4 +8,4 @@ const CreateCampaign = () => {
   );
 };
 
-export default CreateCampaign;
+export default CampaignApproval;
