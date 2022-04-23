@@ -13,6 +13,8 @@ import {
 
 import { useEffect, useState } from "react";
 
+import SignMessageView from "./SignMessageView";
+
 interface IAppState {
   connector: WalletConnect | null;
   fetching: boolean;
@@ -165,10 +167,10 @@ const WalletConnectView = () => {
   return (
     <>
       <VStack align="center" justify="center">
-        <Heading>Bind your web3 wallet</Heading>
+        <Heading>Connect your wallet</Heading>
         <Text>
-          verify your web3 wallet on our platform to bind your nft wallet Find
-          out more
+          each wallet can only be binded once to your web3auth account you can
+          bind multiple wallets to a single web3auth account
         </Text>
         <Text>
           Status:{" "}
@@ -181,6 +183,8 @@ const WalletConnectView = () => {
         ) : (
           <Button onClick={connect}>Connect with WalletConnect</Button>
         )}
+
+        <SignMessageView connector={state.connector} />
       </VStack>
     </>
   );

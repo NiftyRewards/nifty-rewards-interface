@@ -30,7 +30,7 @@
     "@web3auth/web3auth": "^0.9.3",
     "axios": "^0.26.1",
     "chakra-ui-steps": "^1.7.2",
-    "ethers": "^5.6.2",
+    "ethers": "^5.6.4",
     "framer-motion": "^4.1.17",
     "fs": "^0.0.1-security",
     "larissa-ui": "^1.2.1",
@@ -43,7 +43,8 @@
     "react-hook-form": "^7.16.1",
     "react-icons": "^4.3.1",
     "react-supabase": "^0.2.0",
-    "web3": "^1.5.3"
+    "wagmi": "^0.2.28",
+    "web3": "^1.7.3"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
