@@ -25,7 +25,7 @@ function BottomBar() {
         backdropFilter="blur(10px)"
         justify="space-between"
       >
-        <Button variant="unstyled">Connect</Button>
+        <Button variant="unstyled">Connect </Button>
         <IconButton
           variant="unstyled"
           aria-label="Menu"
