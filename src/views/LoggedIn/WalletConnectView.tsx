@@ -1,11 +1,14 @@
 import { Button, Heading, Text, VStack } from "@chakra-ui/react";
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "@walletconnect/qrcode-modal";
-import { IInternalEvent } from "@walletconnect/types";
 import { useEffect, useState } from "react";
-import { apiGetAccountAssets } from "../../helpers/api";
+
 import { IAssetData } from "../../helpers/types";
+import { IInternalEvent } from "@walletconnect/types";
+import QRCodeModal from "@walletconnect/qrcode-modal";
 import SignMessageView from "./SignMessageView";
+import WalletConnect from "@walletconnect/client";
+import Web3 from "web3";
+import { apiGetAccountAssets } from "../../helpers/api";
+import { useWeb3Auth } from "../../services/web3auth";
 
 interface IAppState {
   connector: WalletConnect | null;
@@ -16,7 +19,8 @@ interface IAppState {
   pendingRequest: boolean;
   uri: string;
   accounts: string[];
-  address: string;
+  address_w3a: string;
+  address_to_bind: string;
   result: any | null;
   assets: IAssetData[];
 }
@@ -30,12 +34,15 @@ const INITIAL_STATE: IAppState = {
   pendingRequest: false,
   uri: "",
   accounts: [],
-  address: "",
+  address_w3a: "",
+  address_to_bind: "",
   result: null,
   assets: [],
 };
 
 const WalletConnectView = () => {
+  const { web3Auth } = useWeb3Auth();
+
   //   const [connector, setConnector] = useState<WalletConnect>();
   const [state, setState] = useState<IAppState>({ ...INITIAL_STATE });
 
@@ -58,12 +65,21 @@ const WalletConnectView = () => {
 
     // subscribe to events
     console.log("before subscribeToEvents");
+    await getInfos();
     await subscribeToEvents();
   };
 
   useEffect(() => {
     subscribeToEvents();
   }, [state.connector]);
+
+  const getInfos = async () => {
+    const web3 = new Web3(web3Auth.provider);
+    let account_w3a = (await web3.eth.getAccounts())[0];
+
+    console.log("pubKey", account_w3a); // <-- the public key
+    await setState({ ...state, address_w3a: account_w3a });
+  };
 
   const subscribeToEvents = () => {
     console.log("subscribeToEvents");
@@ -105,7 +121,13 @@ const WalletConnectView = () => {
     if (state.connector.connected) {
       const { chainId, accounts } = state.connector;
       const address = accounts[0];
-      setState({ ...state, connected: true, chainId, accounts, address });
+      setState({
+        ...state,
+        connected: true,
+        chainId,
+        accounts,
+        address_to_bind: address,
+      });
       onSessionUpdate(accounts, chainId);
     }
   };
@@ -126,7 +148,14 @@ const WalletConnectView = () => {
     console.log({ payload });
     const { chainId, accounts } = payload.params[0];
     const address = accounts[0];
-    await setState({ ...state, connected: true, chainId, accounts, address });
+    console.log("🚀 | onConnect | address", address);
+    await setState({
+      ...state,
+      connected: true,
+      chainId,
+      accounts,
+      address_to_bind: address,
+    });
     getAccountAssets();
   };
 
@@ -136,18 +165,24 @@ const WalletConnectView = () => {
 
   const onSessionUpdate = async (accounts: string[], chainId: number) => {
     const address = accounts[0];
-    await setState({ ...state, chainId, accounts, address });
+    console.log("🚀 | onSessionUpdate | address", address);
+    await setState({ ...state, chainId, accounts, address_to_bind: address });
     await getAccountAssets();
   };
 
   const getAccountAssets = async () => {
-    const { address, chainId } = state;
+    const { address_to_bind, chainId } = state;
     setState({ ...state, fetching: true });
     try {
       // get account balances
-      const assets = await apiGetAccountAssets(address, chainId);
+      const assets = await apiGetAccountAssets(address_to_bind, chainId);
 
-      await setState({ ...state, fetching: false, address, assets });
+      await setState({
+        ...state,
+        fetching: false,
+        address_to_bind: address_to_bind,
+        assets,
+      });
     } catch (error) {
       console.error(error);
       await setState({ ...state, fetching: false });
@@ -174,7 +209,11 @@ const WalletConnectView = () => {
         {state.connector && state.connector.connected ? (
           <>
             <Button onClick={killSession}>Disconnect</Button>
-            <SignMessageView connector={state.connector} />
+            <SignMessageView
+              connector={state.connector}
+              address_w3a={state.address_w3a}
+              address_to_bind={state.address_to_bind}
+            />
           </>
         ) : (
           <Button onClick={connect}>Connect with WalletConnect</Button>

@@ -2,8 +2,8 @@ import {
   Avatar,
   Box,
   Button,
-  Heading,
   HStack,
+  Heading,
   Image,
   ListItem,
   Modal,
@@ -15,12 +15,15 @@ import {
   SimpleGrid,
   Text,
   UnorderedList,
+  VStack,
   useDisclosure,
   useToast,
-  VStack,
 } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import Web3 from "web3";
+import axios from "axios";
+import { useWeb3Auth } from "../services/web3auth";
 import vouchers from "data/vouchers";
-import React, { useState } from "react";
 
 const Hero = () => {
   return (
@@ -51,10 +54,42 @@ const Hero = () => {
 };
 
 const NFTDetails = () => {
+  const { provider, logout, getUserInfo, getAccounts, getBalance, web3Auth } =
+    useWeb3Auth();
+  // login,
+  // logout,
+  // getUserInfo,
+  // getAccounts,
+  // getBalance,
+  // signMessage,
+  // signTransaction,
+  // signAndSendTransaction,
+  // web3Auth,
+  // chain,
+
+  const getInfos = async () => {
+    const web3 = new Web3(web3Auth.provider);
+    const address_w3a = (await web3.eth.getAccounts()[0];
+
+    axios
+      .get(`https://nifty-rewards.herokuapp.com/users/nfts/${address_w3a}`)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
+
+  };
+
+  useEffect(() => {
+    if (provider) {
+      getInfos();
+    }
+  }, [provider]);
+
   return (
     <HStack w="full" p="8" align="start">
       <VStack px="4">
-        <Heading>eligible NFTs</Heading>
+        <Heading>Eligible NFTs</Heading>
         <HStack>
           <Card />
           <Card2 />
@@ -150,13 +185,12 @@ function VoucherModal({ isOpen, onClose }) {
   const [isRedeeming, setIsRedeeming] = useState(false);
 
   const redeemVoucher = () => {
-
     console.log("redeem voucher");
     setIsRedeeming(true);
     setTimeout(() => {
       toast({
         title: "10% off footwear",
-        description: "You have successfully redeemed",
+        description: "You have successfully redeemed this voucher",
         status: "success",
         duration: 3000,
         isClosable: true,
