@@ -21,9 +21,9 @@ const LoggedInView = () => {
   // chain,
 
   const getInfos = async () => {
-    const web3 = new Web3(web3Auth.provider);
-    const accounts = await web3.eth.getAccounts();
-    console.log("🚀 | getInfos | accounts", accounts[0]);
+    // const web3 = new Web3(web3Auth.provider);
+    // const accounts = await web3.eth.getAccounts();
+    // console.log("🚀 | getInfos | accounts", accounts[0]);
   };
   useEffect(() => {
     if (provider) {

@@ -74,7 +74,7 @@ const WalletConnectView = () => {
   }, [state.connector]);
 
   const getInfos = async () => {
-    const web3 = new Web3(web3Auth.provider);
+    const web3 = new Web3();
     let account_w3a = (await web3.eth.getAccounts())[0];
 
     console.log("pubKey", account_w3a); // <-- the public key
@@ -211,7 +211,7 @@ const WalletConnectView = () => {
             <Button onClick={killSession}>Disconnect</Button>
             <SignMessageView
               connector={state.connector}
-              address_w3a={state.address_w3a}
+              // address_w3a={state.address_w3a}
               address_to_bind={state.address_to_bind}
             />
           </>

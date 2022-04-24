@@ -10,7 +10,7 @@ const SignMessageView = ({ connector, address_to_bind }) => {
   const { web3Auth } = useWeb3Auth();
   const [address_w3a, setAddressW3A] = useState("");
   const getInfos = async () => {
-    const web3 = new Web3(web3Auth.provider);
+    const web3 = new Web3();
     let account_w3a = (await web3.eth.getAccounts())[0];
 
     console.log("pubKey", account_w3a); // <-- the public key
