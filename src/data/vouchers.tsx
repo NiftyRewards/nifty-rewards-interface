@@ -11,10 +11,10 @@ const vouchers = [
     text: "free one month membership",
     text2: "",
   },
-  {
-    text: "coming soon",
-    text2: "",
-  },
+  // {
+  //   text: "coming soon",
+  //   text2: "",
+  // },
 ];
 
 export default vouchers;

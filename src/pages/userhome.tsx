@@ -98,6 +98,37 @@ const Card = ({ campaign }) => {
   );
 };
 
+const Explore = () => {
+  return (
+    <VStack w="full" p="8" align="center">
+      <Heading py="2">explore campaigns</Heading>
+      <HStack>
+        <Image
+          width="auto"
+          objectFit="contain"
+          src="/assets/ExploreCard1.png"
+          alt="Card Image"
+          borderRadius="8"
+        />
+        <Image
+          width="auto"
+          objectFit="contain"
+          src="/assets/ExploreCard2.png"
+          alt="Card Image"
+          borderRadius="8"
+        />
+        <Image
+          width="auto"
+          objectFit="contain"
+          src="/assets/ExploreCard3.png"
+          alt="Card Image"
+          borderRadius="8"
+        />
+      </HStack>
+    </VStack>
+  );
+};
+
 const UserHome = () => {
   // const { provider } = useWeb3Auth();
 
@@ -105,6 +136,7 @@ const UserHome = () => {
     <VStack w="full">
       <Hero />
       <Cards />
+      <Explore />
     </VStack>
   );
 };

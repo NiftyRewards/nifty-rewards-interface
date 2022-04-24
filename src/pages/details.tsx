@@ -24,6 +24,7 @@ import Web3 from "web3";
 import axios from "axios";
 import { useWeb3Auth } from "../services/web3auth";
 import vouchers from "data/vouchers";
+import useStore from "state";
 
 const Hero = () => {
   return (
@@ -54,30 +55,17 @@ const Hero = () => {
 };
 
 const NFTDetails = () => {
-  const { provider, logout, getUserInfo, getAccounts, getBalance, web3Auth } =
-    useWeb3Auth();
-  // login,
-  // logout,
-  // getUserInfo,
-  // getAccounts,
-  // getBalance,
-  // signMessage,
-  // signTransaction,
-  // signAndSendTransaction,
-  // web3Auth,
-  // chain,
+  const { provider } = useWeb3Auth();
 
   const getInfos = async () => {
-    const web3 = new Web3(web3Auth.provider);
-    const address_w3a = (await web3.eth.getAccounts()[0];
-
-    axios
-      .get(`https://nifty-rewards.herokuapp.com/users/nfts/${address_w3a}`)
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-      });
-
+    // const web3 = new Web3(web3Auth.provider);
+    // const address_w3a = (await web3.eth.getAccounts()[0];
+    // axios
+    //   .get(`https://nifty-rewards.herokuapp.com/users/nfts/${address_w3a}`)
+    //   .then((res) => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //   });
   };
 
   useEffect(() => {
@@ -87,28 +75,105 @@ const NFTDetails = () => {
   }, [provider]);
 
   return (
-    <HStack w="full" p="8" align="start">
-      <VStack px="4">
-        <Heading>Eligible NFTs</Heading>
-        <HStack>
+    <HStack w="full" p="8" align="center">
+      {/* <VStack px="4">
+          <Heading>Available vouchers</Heading>
           <Card />
           <Card2 />
-        </HStack>
-      </VStack>
-      <VStack>
-        <Heading>More Information</Heading>
-        <VStack w="full" align="start">
-          <Text>
-            <Box textColor="primary.400">Location:</Box> WOrldwide official nike
-            stores
-          </Text>
-          <Text>
-            <Box textColor="primary.400">start date:</Box> 21/04/2022
-          </Text>
-          <Text>
-            <Box textColor="primary.400">end date:</Box> 25/04/2022
-          </Text>
         </VStack>
+        <VStack>
+          <Heading>More Information</Heading>
+          <VStack w="full" align="start">
+            <Text>
+              <Box textColor="primary.400">Location:</Box> WOrldwide official nike
+              stores
+            </Text>
+            <Text>
+              <Box textColor="primary.400">start date:</Box> 21/04/2022
+            </Text>
+            <Text>
+              <Box textColor="primary.400">end date:</Box> 25/04/2022
+            </Text>
+          </VStack>
+        </VStack> */}
+    </HStack>
+  );
+};
+
+const ListCard1 = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const bears = useStore((state) => state.bears);
+
+  return (
+    <HStack spacing="16">
+      <VoucherModal isOpen={isOpen} onClose={onClose} />
+      <Image
+        height="full"
+        objectFit="contain"
+        src="/assets/azuki1.png"
+        alt="Card Image"
+        borderRadius="8"
+      />
+      <VStack h="auto">
+        {vouchers.map((voucher) => (
+          <VStack
+            bg={
+              bears == 1 && voucher.text == "10% off footwear"
+                ? "gray.300"
+                : "primary.400"
+            }
+            borderRadius="lg"
+            h="80px"
+            w="full"
+            alignItems="center"
+            justify="center"
+            p="4"
+            onClick={onOpen}
+            key={voucher.text}
+          >
+            <Text color="black">{voucher.text}</Text>
+            <Text color="black" fontSize="small">
+              {voucher.text2}
+            </Text>
+          </VStack>
+        ))}
+      </VStack>
+    </HStack>
+  );
+};
+
+const ListCard2 = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <HStack spacing="16">
+      <VoucherModal isOpen={isOpen} onClose={onClose} />
+      <Image
+        height="full"
+        objectFit="contain"
+        src="/assets/azuki2.png"
+        alt="Card Image"
+        borderRadius="8"
+      />
+      <VStack h="auto">
+        {vouchers.map((voucher) => (
+          <VStack
+            bg="primary.400"
+            borderRadius="lg"
+            h="80px"
+            w="full"
+            alignItems="center"
+            justify="center"
+            p="4"
+            onClick={onOpen}
+            key={voucher.text}
+          >
+            <Text color="black">{voucher.text}</Text>
+            <Text color="black" fontSize="small">
+              {voucher.text2}
+            </Text>
+          </VStack>
+        ))}
       </VStack>
     </HStack>
   );
@@ -148,6 +213,37 @@ const Card2 = () => {
   );
 };
 
+// const Vouchers = () => {
+//   const { isOpen, onOpen, onClose } = useDisclosure();
+
+//   return (
+//     <VStack w="full" justify="center">
+//       <VoucherModal isOpen={isOpen} onClose={onClose} />
+
+//       <Heading>Available vouchers</Heading>
+//       <SimpleGrid columns={[1, null, 2]} spacing="40px">
+//         {vouchers.map((voucher) => (
+//           <VStack
+//             bg="primary.400"
+//             borderRadius="lg"
+//             h="120px"
+//             alignItems="center"
+//             justify="center"
+//             p="4"
+//             onClick={onOpen}
+//             key={voucher.text}
+//           >
+//             <Text color="black">{voucher.text}</Text>
+//             <Text color="black" fontSize="small">
+//               {voucher.text2}
+//             </Text>
+//           </VStack>
+//         ))}
+//       </SimpleGrid>
+//     </VStack>
+//   );
+// };
+
 const Vouchers = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -156,7 +252,7 @@ const Vouchers = () => {
       <VoucherModal isOpen={isOpen} onClose={onClose} />
 
       <Heading>Available vouchers</Heading>
-      <SimpleGrid columns={[1, null, 2]} spacing="40px">
+      <VStack>
         {vouchers.map((voucher) => (
           <VStack
             bg="primary.400"
@@ -174,7 +270,7 @@ const Vouchers = () => {
             </Text>
           </VStack>
         ))}
-      </SimpleGrid>
+      </VStack>
     </VStack>
   );
 };
@@ -183,6 +279,7 @@ function VoucherModal({ isOpen, onClose }) {
   const finalRef = React.useRef();
   const toast = useToast();
   const [isRedeeming, setIsRedeeming] = useState(false);
+  const increase = useStore((state) => state.increase);
 
   const redeemVoucher = () => {
     console.log("redeem voucher");
@@ -197,15 +294,16 @@ function VoucherModal({ isOpen, onClose }) {
         position: "top",
       });
       setIsRedeeming(false);
+      increase();
       onClose();
     }, 2000);
   };
 
   return (
     <>
-      <Box ref={finalRef} tabIndex={-1} aria-label="Focus moved to this box">
+      {/* <Box ref={finalRef} tabIndex={-1} aria-label="Focus moved to this box">
         Some other content that&quot;ll receive focus on close.
-      </Box>
+      </Box> */}
 
       <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -248,12 +346,23 @@ function VoucherModal({ isOpen, onClose }) {
   );
 }
 
+const NFTList = () => {
+  return (
+    <VStack spacing="16">
+      <Heading py="4">Available vouchers</Heading>
+      <ListCard1 />
+      <ListCard2 />
+    </VStack>
+  );
+};
+
 const Details = () => {
   return (
     <VStack w="full">
       <Hero />
-      <NFTDetails />
-      <Vouchers />
+      {/* <NFTDetails />
+      <Vouchers /> */}
+      <NFTList />
     </VStack>
   );
 };
