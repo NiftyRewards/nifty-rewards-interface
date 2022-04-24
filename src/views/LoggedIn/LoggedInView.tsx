@@ -21,13 +21,13 @@ const LoggedInView = () => {
 
   const getInfos = async () => {
     const userInfo = await getUserInfo();
-    // const accounts = await getAccounts();
+    const accounts = await getAccounts();
     const balance = await getBalance();
     const user = await web3Auth.getUserInfo();
 
-    const web3 = new Web3(web3Auth.provider);
-    const accounts = await web3.eth.getAccounts();
-    console.log("pubKey", accounts); // <-- the public key
+    // const web3 = new Web3(web3Auth.provider);
+    // const accounts = await web3.eth.getAccounts();
+    // console.log("pubKey", accounts); // <-- the public key
 
     console.log({ user });
     console.log({ userInfo });
