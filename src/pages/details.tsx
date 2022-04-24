@@ -150,14 +150,7 @@ function VoucherModal({ isOpen, onClose }) {
   const [isRedeeming, setIsRedeeming] = useState(false);
 
   const redeemVoucher = () => {
-    toast({
-      title: "10% off footwear",
-      description: "You have successfully redeemed",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-      position: "top",
-    });
+
     console.log("redeem voucher");
     setIsRedeeming(true);
     setTimeout(() => {
@@ -167,6 +160,7 @@ function VoucherModal({ isOpen, onClose }) {
         status: "success",
         duration: 3000,
         isClosable: true,
+        position: "top",
       });
       setIsRedeeming(false);
       onClose();
