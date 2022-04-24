@@ -37,7 +37,8 @@ const LinkItems = () => {
     <>
       <LinkItem href="/">Home</LinkItem>
       <LinkItem href="/userhome">Explore</LinkItem>
-      <LinkItem href="/">Profile</LinkItem>
+      <LinkItem href="/analytics">Analytics</LinkItem>
+      <LinkItem href="/profile">Profile</LinkItem>
     </>
   );
 };
@@ -74,10 +75,10 @@ const Header = () => {
         <HStack spacing={4} alignItems="center">
           {/* <Link href="/">Nifty Rewards</Link> */}
           <Image
-            width="200px"
+            width="30px"
             objectFit="contain"
-            src="/logo.png"
-            alt="Dan Abramov"
+            src="/LOGO2.png"
+            alt="Logo"
           />
           <HStack pl="4" spacing="4" display={{ base: "none", md: "flex" }}>
             <LinkItems />

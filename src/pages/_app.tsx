@@ -13,6 +13,8 @@ import Layout from "../components/layout";
 import createEmotionCache from "../styles/createEmotionCache";
 import theme from "../styles/theme";
 import "../styles/globals.css";
+import "react-datepicker/dist/react-datepicker.css";
+import "../styles/date-picker.css";
 
 import { Web3AuthProvider } from "services/web3auth";
 // import { useState, useEffect } from "react";
