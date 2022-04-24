@@ -1,23 +1,24 @@
 import {
+  Avatar,
+  Button,
+  Flex,
+  HStack,
+  Heading,
+  Image,
+  SimpleGrid,
   Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
   TableCaption,
   TableContainer,
-  VStack,
-  Heading,
-  HStack,
-  SimpleGrid,
+  Tbody,
+  Td,
   Text,
-  Image,
-  Button,
-  Avatar,
-  Flex,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+  VStack,
 } from "@chakra-ui/react";
+
 import router from "next/router";
 
 const Hero = () => {
@@ -70,44 +71,28 @@ const Tables = () => {
         </Thead>
         <Tbody>
           <Tr>
-            <Td>Shoes sale</Td>
+            <Td>Shoes Sale -30%</Td>
             <Td>ongoing</Td>
             <Td isNumeric>1000</Td>
-            <Td isNumeric>500</Td>
-            <Td isNumeric>21 02 2022</Td>
-            <Td isNumeric>28 Days Left</Td>
+            <Td isNumeric>750</Td>
+            <Td isNumeric>24 05 2022</Td>
+            <Td isNumeric>30 Days Left</Td>
           </Tr>
           <Tr>
-            <Td>Shoes sale</Td>
+            <Td>Marathon Entry Pass</Td>
             <Td>ongoing</Td>
             <Td isNumeric>1000</Td>
             <Td isNumeric>500</Td>
-            <Td isNumeric>21 02 2022</Td>
-            <Td isNumeric>28 Days Left</Td>
+            <Td isNumeric>24 05 2022</Td>
+            <Td isNumeric>30 Days Left</Td>
           </Tr>
           <Tr>
-            <Td>Shoes sale</Td>
-            <Td>ongoing</Td>
+            <Td>Shoes Sale -50%</Td>
+            <Td>ended</Td>
             <Td isNumeric>1000</Td>
-            <Td isNumeric>500</Td>
-            <Td isNumeric>21 02 2022</Td>
-            <Td isNumeric>28 Days Left</Td>
-          </Tr>
-          <Tr>
-            <Td>Shoes sale</Td>
-            <Td>ongoing</Td>
             <Td isNumeric>1000</Td>
-            <Td isNumeric>500</Td>
-            <Td isNumeric>21 02 2022</Td>
-            <Td isNumeric>28 Days Left</Td>
-          </Tr>
-          <Tr>
-            <Td>Shoes sale</Td>
-            <Td>ongoing</Td>
-            <Td isNumeric>1000</Td>
-            <Td isNumeric>500</Td>
-            <Td isNumeric>21 02 2022</Td>
-            <Td isNumeric>28 Days Left</Td>
+            <Td isNumeric>23 04 2022</Td>
+            <Td isNumeric>0 Days Left</Td>
           </Tr>
         </Tbody>
         {/* <Tfoot>
